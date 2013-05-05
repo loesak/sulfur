@@ -9,7 +9,7 @@ import org.openqa.selenium.By;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface BasicElement {
+public @interface ButtonElement {
 	public Class<? extends By> by();
 	public String using();
 }

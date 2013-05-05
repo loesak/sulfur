@@ -3,10 +3,16 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.loesoft.sulfur</groupId>
 	<artifactId>core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
+
+	<parent>
+		<groupId>com.loesoft.sulfur</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
 
 	<properties>
 		<junit.version>4.10</junit.version>
@@ -54,4 +60,43 @@
 			<version>${phantomjs.driver.version}</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.codehaus.cargo</groupId> -->
+<!-- 				<artifactId>cargo-maven2-plugin</artifactId> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>cargo-start</id> -->
+<!-- 						<phase>pre-integration-test</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>start</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 					<execution> -->
+<!-- 						<id>cargo-stop</id> -->
+<!-- 						<phase>post-integration-test</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>stop</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 				<configuration> -->
+<!-- 					<container> -->
+<!-- 						<containerId>tomcat7x</containerId> -->
+<!-- 						<type>standalone</type> -->
+<!-- 					</container> -->
+<!-- 					<configuration> -->
+<!-- 					</configuration> -->
+<!-- 					<deployables> -->
+<!-- 						<deployable> -->
+<!-- 							<location>${basedir}/test/resources/test.html</location> -->
+<!-- 							<type>file</type> -->
+<!-- 						</deployable> -->
+<!-- 					</deployables> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+		</plugins>
+	</build>
 </project>

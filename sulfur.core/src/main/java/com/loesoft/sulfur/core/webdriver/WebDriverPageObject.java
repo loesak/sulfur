@@ -1,12 +1,7 @@
 package com.loesoft.sulfur.core.webdriver;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
@@ -16,39 +11,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.fico.tests.web.webdriver.webobject.WebObjectInitializer;
-import com.fico.tests.web.webdriver.webobject.bootstrap.BootstrapDatePickerObject;
-import com.fico.tests.web.webdriver.webobject.bootstrap.BootstrapDatePickerObjectInitializer;
-import com.fico.tests.web.webdriver.webobject.bootstrap.CalendarObject;
-import com.fico.tests.web.webdriver.webobject.bootstrap.CalendarObjectInitializer;
-import com.fico.tests.web.webdriver.webobject.bootstrap.DropdownButtonObject;
-import com.fico.tests.web.webdriver.webobject.bootstrap.DropdownButtonObjectInitializer;
-import com.fico.tests.web.webdriver.webobject.bootstrap.TabbedNavObject;
-import com.fico.tests.web.webdriver.webobject.bootstrap.TabbedNavObjectInitializer;
-import com.fico.tests.web.webdriver.webobject.core.PageObject;
-import com.fico.tests.web.webdriver.webobject.core.PageObjectInitializer;
-import com.fico.tests.web.webdriver.webobject.html.TableObject;
-import com.fico.tests.web.webdriver.webobject.html.TableObjectInitializer;
-import com.fico.tests.web.webdriver.webobject.jquery.DatePickerObject;
-import com.fico.tests.web.webdriver.webobject.jquery.DatePickerObjectInitializer;
-
 /**
  * base class for all WebDriver based PageObjects
  * 
- * all PageObjects share the same lifecycle. When a page object is initialized,
- * the following methods are called in order:
- * 
- * preInit() <- by default does nothing but can be overridden by individual page
- * objects. init() <- initializes the page object (initializes class member
- * variables marked with
- * 
- * @FindBy, @PageObject, @TableObject, @TaskNav, etc.). postInit() <- by default
- *          does nothing but can be overridden by individual page objects.
- *          verify() <- by default returns true. used to verify the page object
- *          is able to represent the page it is currently on in the browser. If
- *          this returns false, an exception is thrown.
- * 
- * @author AaronLoes
+ * @author Aaron Loes
  */
 public class WebDriverPageObject {
 
@@ -69,12 +35,10 @@ public class WebDriverPageObject {
 		PageFactory.initElements(driver, this);
 
 		try {
-			
 			/*
 			 * TODO
 			 * iterate through fields annotated and see if they are loaded
 			 */
-			
 		} catch (Exception e) {
 			throw new IllegalStateException("Failed to initialize object '" + this.getClass().getName() + "'.", e);
 		}
@@ -183,7 +147,7 @@ public class WebDriverPageObject {
 				page.postInit();
 			}
 		} catch (Exception e) {
-			throw new RuntimeException("Failed to load page object of type '" + clazz.getName() + "'", e);
+			throw new RuntimeException("Failed to load page object of type '" + clazz.getName() + "'.", e);
 		}
 
 		return page;

@@ -9,7 +9,8 @@ import org.openqa.selenium.By;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface BasicElement {
+public @interface InputElement {
 	public Class<? extends By> by();
 	public String using();
+	public String type() default "text";
 }

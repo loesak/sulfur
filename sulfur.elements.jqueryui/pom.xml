@@ -1,19 +1,27 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.loesoft.sulfur</groupId>
-  <artifactId>elements.bootstrap</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.0</version>
-        <configuration>
-          <source/>
-          <target/>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	
+	<artifactId>elements.bootstrap</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	
+	<parent>
+		<groupId>com.loesoft.sulfur</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	
+	<properties>
+		<sulfur.core.version>0.0.1-SNAPSHOT</sulfur.core.version>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.loesoft.sulfur</groupId>
+			<artifactId>core</artifactId>
+			<version>${sulfur.core.version}</version>
+		</dependency>
+	</dependencies>
 </project>
