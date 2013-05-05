@@ -18,7 +18,5 @@ Want your tests to seamlessly interact with the popular widget frameworks like [
 
 Looking to run your tests locally but have them execute remotely and distributed? No problem. Sulfur has full support for the Selenium Grid.
 
-Have some old Selenium unit tests, or worse, Selenese HTML tests? No problem. Sulfur can execute those as well. It can even execute them using WebDriver for true browser testing.
-
 [1]: http://twitter.github.io/bootstrap/ "Twitter Bootstrap"
 [2]: http://jqueryui.com/ "jQueryUI"

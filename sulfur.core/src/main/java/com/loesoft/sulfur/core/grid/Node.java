@@ -2,7 +2,7 @@ package com.loesoft.sulfur.core.grid;
 
 /**
  * represents a Selenium node
- * @author AaronLoes
+ * @author Aaron Loes
  */
 public class Node {
 

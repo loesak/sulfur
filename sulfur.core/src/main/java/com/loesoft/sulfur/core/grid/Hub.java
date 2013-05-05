@@ -2,7 +2,7 @@ package com.loesoft.sulfur.core.grid;
 
 /**
  * represents a Selenium hub
- * @author AaronLoes
+ * @author Aaron Loes
  */
 public class Hub {
 

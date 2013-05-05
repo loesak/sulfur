@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Base test class for WebDriver based tests
  * 
- * @author AaronLoes
+ * @author Aaron Loes
  */
 public class WebDriverBaseTest {
 

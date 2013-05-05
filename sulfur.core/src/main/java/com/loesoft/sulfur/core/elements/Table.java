@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
  * contents. Assumes the table is using the appropriate segments for table
  * sections (e.g. thead, tbody, tfoot).
  * 
- * @author AaronLoes
+ * @author Aaron Loes
  */
 public class Table extends Element {
 	private WebDriver driver;

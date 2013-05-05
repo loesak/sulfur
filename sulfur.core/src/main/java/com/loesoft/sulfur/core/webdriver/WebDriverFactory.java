@@ -17,7 +17,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
  * Factory class for creating a WebDriver instance based on a specific WebDriver
  * class
  * 
- * @author AaronLoes
+ * @author Aaron Loes
  */
 public class WebDriverFactory {
 

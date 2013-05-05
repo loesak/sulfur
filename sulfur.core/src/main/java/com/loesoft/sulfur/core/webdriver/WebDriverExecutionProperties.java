@@ -7,7 +7,7 @@ import java.util.Properties;
  * Properties class for retrieving properties specific to execution of WebDriver
  * based tests
  * 
- * @author AaronLoes
+ * @author Aaron Loes
  */
 public class WebDriverExecutionProperties {
 	private static final String BASE_PROPERTY_FILE_PATH = "com/loesoft/sulfor/core/webdriver/execution-webdriver.properties";

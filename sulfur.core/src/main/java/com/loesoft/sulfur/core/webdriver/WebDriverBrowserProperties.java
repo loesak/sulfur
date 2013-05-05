@@ -10,10 +10,10 @@ import java.util.Properties;
 /**
  * Properties class for looking up browser specific properties
  * 
- * @author AaronLoes
+ * @author Aaron Loes
  */
 public class WebDriverBrowserProperties {
-	private static final String BASE_PROPERTY_FILE_PATH = "com/loesoft/sulfor/core/webdriver/webdriver-{0}.properties";
+	private static final String BASE_PROPERTY_FILE_PATH = "com/loesoft/sulfur/core/webdriver/webdriver-{0}.properties";
 
 	private static final String PROPERTY_KEY_WEBDRIVER_CLASS_NAME = "webdriver.class.name";
 	private static final String PROPERTY_KEY_WEBDRIVER_REMOTE_URL = "webdriver.remote.url";

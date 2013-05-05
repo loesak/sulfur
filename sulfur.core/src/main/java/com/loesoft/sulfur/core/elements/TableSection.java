@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Represents a section of a table (e.g. thead, tbody, tfoot).
- * @author AaronLoes
+ * @author Aaron Loes
  */
 public class TableSection {
   private WebElement section;

@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Represents a row within a table.
- * @author AaronLoes
+ * @author Aaron Loes
  */
 public class TableRow {
   private WebElement row;
