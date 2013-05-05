@@ -1,5 +1,6 @@
 package com.loesoft.sulfur.core.elements;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -7,44 +8,55 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Represents a row within a table.
+ * 
  * @author Aaron Loes
  */
 public class TableRow {
-  private WebElement row;
-  private boolean headerRow;
+	private WebElement row;
 
-  public TableRow(WebElement row, Boolean headerRow) {
-    this.row = row;
-    this.headerRow = headerRow;
-  }
+	public TableRow(WebElement row) {
+		this.row = row;
+	}
 
-  /**
-   * retrieves the cell for the row at the given index
-   * @param index
-   * @return the cell for the row at the given index
-   */
-  public WebElement cell(int index) {
-    return this.cells().get(index);
-  }
+	/**
+	 * retrieves the cell for the row at the given index
+	 * 
+	 * @param index
+	 * @return the cell for the row at the given index
+	 */
+	public TableCell cell(int index) {
+		return this.cells().get(index);
+	}
 
-  /**
-   * retrieves the list of cells for the row
-   * @return the list of cells for the row
-   */
-  public List<WebElement> cells() {
-    // TODO: need to modify because cells can be both 'th' and 'td'
-    List<WebElement> cells = row.findElements(By.tagName("td"));
-    if (this.headerRow) {
-      cells = row.findElements(By.tagName("th"));
-    }
-    return cells;
-  }
+	/**
+	 * retrieves the list of cells for the row
+	 * 
+	 * NOTE: this currently makes the assumption that all cells are of the same
+	 * type, either TD or TH, not mixed
+	 * 
+	 * @return the list of cells for the row
+	 */
+	public List<TableCell> cells() {
+		// TODO: need to modify because cells can be both 'th' and 'td'
+		List<WebElement> cells = row.findElements(By.tagName("td"));
 
-  /**
-   * returns the web element for this row
-   * @return
-   */
-  public WebElement originalRow() {
-    return this.row;
-  }
+		if (cells.size() == 0) {
+			cells = row.findElements(By.tagName("th"));
+		}
+
+		List<TableCell> tableCells = new ArrayList<TableCell>();
+		for (WebElement cell : cells) {
+			TableCell tableCell = null;
+			
+			if (cell.getTagName().equals("td")) {
+				tableCell = new TableRowCell(cell);
+			} else {
+				tableCell = new TableHeaderCell(cell);
+			}
+			
+			tableCells.add(tableCell);
+		}
+
+		return tableCells;
+	}
 }

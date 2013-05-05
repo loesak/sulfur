@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
  * Represents a section of a table (e.g. thead, tbody, tfoot).
  * @author Aaron Loes
  */
-public class TableSection {
+public abstract class TableSection extends Element {
   private WebElement section;
   private Class<? extends TableRow> rowClass;
 

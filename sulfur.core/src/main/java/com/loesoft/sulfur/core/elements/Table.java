@@ -1,7 +1,6 @@
 package com.loesoft.sulfur.core.elements;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
@@ -12,35 +11,32 @@ import org.openqa.selenium.WebElement;
  * @author Aaron Loes
  */
 public class Table extends Element {
-	private WebDriver driver;
-	private By by;
+	private WebElement table;
 
 	private Class<? extends TableRow> headerRowClass;
 	private Class<? extends TableRow> bodyRowClass;
 	private Class<? extends TableRow> footerRowClass;
 
-	protected WebElement table;
-
-	public Table(WebDriver driver, By by, Class<? extends TableRow> headerRowClass, Class<? extends TableRow> bodyRowClass, Class<? extends TableRow> footerRowClass) {
-
-		this.driver = driver;
-		this.by = by;
-
+	public Table(WebElement table) {
+		this(table, TableRow.class, TableRow.class, TableRow.class);
+	}
+	
+	public Table(WebElement table, Class<? extends TableRow> headerRowClass, Class<? extends TableRow> bodyRowClass, Class<? extends TableRow> footerRowClass) {
+		this.table = table;
 		this.headerRowClass = headerRowClass;
 		this.bodyRowClass = bodyRowClass;
 		this.footerRowClass = footerRowClass;
 	}
 
 	public TableSection header() {
-		return new TableSection(this.driver.findElement(this.by).findElement(By.tagName("thead")), this.headerRowClass);
+		return new TableHeader(this.table.findElement(By.tagName("thead")), this.headerRowClass);
 	}
 
 	public TableSection body() {
-		return new TableSection(this.driver.findElement(this.by).findElement(By.tagName("tbody")), this.bodyRowClass);
+		return new TableBody(this.table.findElement(By.tagName("tbody")), this.bodyRowClass);
 	}
 
 	public TableSection footer() {
-		return new TableSection(this.driver.findElement(this.by).findElement(By.tagName("tfoot")), this.footerRowClass);
+		return new TableFooter(this.table.findElement(By.tagName("tfoot")), this.footerRowClass);
 	}
-
 }
