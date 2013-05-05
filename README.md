@@ -2,11 +2,13 @@
 
 # Sulfur
 
-Sulfur, it's above Selenium
+Sulfur, it's above Selenium. Literally!
 
 ## What is it?
 
-Sulfur was created to test highly dynamic web applications while at the same time bring better structure and clarity to your testing. 
+Sulfur was created to test highly dynamic web applications while at the same time bring better organization and clarity to your web testing. 
+
+## Features
 
 It has built in support for all major WebDriver drivers (Android, Chrome, FireFox, HtmlUnit, Internet Explorer, iPhone, Opera, PhantomJS, Safari, and more). You just tell Sulfur the what and where of the browsers you want and it will do the rest.
 
@@ -84,8 +86,6 @@ Have some old Selenium unit tests, or worse, Selenese HTML tests? No problem. Su
 		</dependency>
 		...
 	</dependencies>
-
-####
 
 [1]: http://twitter.github.io/bootstrap/ "Twitter Bootstrap"
 [2]: http://jqueryui.com/ "jQueryUI"
