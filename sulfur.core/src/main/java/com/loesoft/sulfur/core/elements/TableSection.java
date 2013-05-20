@@ -12,7 +12,6 @@ import org.openqa.selenium.WebElement;
  * @author Aaron Loes
  */
 public abstract class TableSection extends Element {
-  private WebElement section;
   private Class<? extends TableRow> rowClass;
 
   /**
@@ -21,8 +20,8 @@ public abstract class TableSection extends Element {
    * @param rowClass
    * @param columnKeys
    */
-  public TableSection(WebElement section, Class<? extends TableRow> rowClass) {
-    this.section = section;
+  public TableSection(WebElement element, Class<? extends TableRow> rowClass) {
+    super(element);
     this.rowClass = rowClass;
   }
 
@@ -45,7 +44,7 @@ public abstract class TableSection extends Element {
    * @return the row found
    */
   public TableRow row(int index) {
-    List<WebElement> trs = section.findElements(By.tagName("tr"));
+    List<WebElement> trs = this.element.findElements(By.tagName("tr"));
 
     try {
       return this.createRow(trs.get(index));
@@ -60,7 +59,7 @@ public abstract class TableSection extends Element {
    * @return the first found row or null if none found
    */
   public TableRow findRow(TableRowPredicate predicate) {
-    List<WebElement> trs = section.findElements(By.tagName("tr"));
+    List<WebElement> trs = this.element.findElements(By.tagName("tr"));
     for(WebElement tr : trs) {
       TableRow row = this.createRow(tr);
       // TODO wrap with StaleObjectException try/catch and see if that resolves table issue
@@ -77,11 +76,10 @@ public abstract class TableSection extends Element {
    * @param predicate the predicate to use for matching a row
    * @return the found rows or an empty list if one found
    */
-  @SuppressWarnings({"rawtypes", "unchecked"})
   public List<TableRow> findRows(TableRowPredicate predicate) {
     List<TableRow> rows = new ArrayList<TableRow>();
 
-    List<WebElement> trs = section.findElements(By.tagName("tr"));
+    List<WebElement> trs = this.element.findElements(By.tagName("tr"));
     for(WebElement tr : trs) {
       TableRow row = this.createRow(tr);
       // TODO wrap with StaleObjectException try/catch and see if that resolves table issue
@@ -96,7 +94,7 @@ public abstract class TableSection extends Element {
   private TableRow createRow(WebElement tr) {
     try {
       Constructor<? extends TableRow> constructor = this.rowClass.getConstructor(WebElement.class, Boolean.class);
-      return constructor.newInstance(tr, Boolean.valueOf(this.section.getTagName().equals("thead")));
+      return constructor.newInstance(tr, Boolean.valueOf(this.element.getTagName().equals("thead")));
     } catch (Exception e) {
       throw new RuntimeException(e);
     }

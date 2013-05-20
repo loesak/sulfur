@@ -14,6 +14,8 @@
 		<relativePath>../parent.xml</relativePath>
 	</parent>
 	
+	<name>Sulfur Elements Bootstrap</name>
+	
 	<properties>
 		<sulfur.core.version>0.0.1-SNAPSHOT</sulfur.core.version>
 	</properties>

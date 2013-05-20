@@ -11,11 +11,10 @@ import org.openqa.selenium.WebElement;
  * 
  * @author Aaron Loes
  */
-public class TableRow {
-	private WebElement row;
+public class TableRow extends Element {
 
-	public TableRow(WebElement row) {
-		this.row = row;
+	public TableRow(WebElement element) {
+		super(element);
 	}
 
 	/**
@@ -38,10 +37,10 @@ public class TableRow {
 	 */
 	public List<TableCell> cells() {
 		// TODO: need to modify because cells can be both 'th' and 'td'
-		List<WebElement> cells = row.findElements(By.tagName("td"));
+		List<WebElement> cells = this.element.findElements(By.tagName("td"));
 
 		if (cells.size() == 0) {
-			cells = row.findElements(By.tagName("th"));
+			cells = this.element.findElements(By.tagName("th"));
 		}
 
 		List<TableCell> tableCells = new ArrayList<TableCell>();
