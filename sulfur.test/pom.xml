@@ -18,6 +18,8 @@
 	
 	<properties>
 		<sulfur.core.version>0.0.1-SNAPSHOT</sulfur.core.version>
+		<sulfur.elements.bootstrap.version>0.0.1-SNAPSHOT</sulfur.elements.bootstrap.version>
+		<sulfur.elements.jqueryui.version>0.0.1-SNAPSHOT</sulfur.elements.jqueryui.version>
 	</properties>
 	
 	<dependencies>
@@ -25,6 +27,16 @@
 			<groupId>com.loesoft.sulfur</groupId>
 			<artifactId>core</artifactId>
 			<version>${sulfur.core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.loesoft.sulfur</groupId>
+			<artifactId>elements.bootstrap</artifactId>
+			<version>${sulfur.elements.bootstrap.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.loesoft.sulfur</groupId>
+			<artifactId>elements.jqueryui</artifactId>
+			<version>${sulfur.elements.jqueryui.version}</version>
 		</dependency>
 	</dependencies>
 	
