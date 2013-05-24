@@ -13,10 +13,6 @@ import org.openqa.selenium.WebElement;
  */
 public class TableRow extends Element {
 
-	public TableRow(WebElement element) {
-		super(element);
-	}
-
 	/**
 	 * retrieves the cell for the row at the given index
 	 * 

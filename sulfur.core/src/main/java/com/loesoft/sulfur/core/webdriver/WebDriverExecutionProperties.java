@@ -10,7 +10,7 @@ import java.util.Properties;
  * @author Aaron Loes
  */
 public class WebDriverExecutionProperties {
-	private static final String BASE_PROPERTY_FILE_PATH = "com/loesoft/sulfor/core/webdriver/execution-webdriver.properties";
+	private static final String BASE_PROPERTY_FILE_PATH = "com/loesoft/sulfur/core/webdriver/execution-webdriver.properties";
 
 	private static final String PROPERTY_KEY_WEBDRIVER_BROWSER_NAME = "webdriver.browser.name";
 	private static final String PROEPRTY_KEY_WEBDRIVER_PAGE_LOAD_TIMEOUT = "webdriver.page.load.timeout";

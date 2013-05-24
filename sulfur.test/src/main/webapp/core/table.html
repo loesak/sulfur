@@ -1,48 +1,82 @@
 <html>
-	<head></head>
+	<head>
+		<script type="text/javascript" src="/sulfur.test/js/lib/jquery/jquery-2.0.0.min.js"></script>
+		<script type="text/javascript" src="/sulfur.test/js/lib/knockout/knockout-2.2.1.js"></script>
+	</head>
 	<body>
-		<table>
-			<thead>
-				<tr>
-					<th>header row 1 cell 1</th>
-					<th>header row 1 cell 2</th>
-					<th>header row 1 cell 3</th>
-					<th>header row 1 cell 4</th>
-					<th>header row 1 cell 5</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>body row 1 cell 1</td>
-					<td>body row 1 cell 2</td>
-					<td>body row 1 cell 3</td>
-					<td>body row 1 cell 4</td>
-					<td>body row 1 cell 5</td>
-				</tr>
-				<tr>
-					<td>body row 2 cell 1</td>
-					<td>body row 2 cell 2</td>
-					<td>body row 2 cell 3</td>
-					<td>body row 2 cell 4</td>
-					<td>body row 2 cell 5</td>
-				</tr>
-				<tr>
-					<td>body row 3 cell 1</td>
-					<td>body row 3 cell 2</td>
-					<td>body row 3 cell 3</td>
-					<td>body row 3 cell 4</td>
-					<td>body row 3 cell 5</td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<td>footer row 1 cell 1</td>
-					<td>footer row 1 cell 2</td>
-					<td>footer row 1 cell 3</td>
-					<td>footer row 1 cell 4</td>
-					<td>footer row 1 cell 5</td>
-				</tr>
-			</tfoot>
-		</table>
+		<h1>Basic Dynamic Table</h1>
+		<section data-sulfur-hook="table">
+			<table>
+				<thead data-bind="{ foreach: { data: header, as: 'row'} }">
+					<tr data-bind="{ foreach: { data: row, as: 'cell'} }">
+						<th data-bind="{ text: cell }"></th>
+					</tr>
+				</thead>
+				<tbody data-bind="{ foreach: { data: body, as: 'row'} }">
+					<tr data-bind="{ foreach: { data: row, as: 'cell'} }">
+						<td data-bind="{ text: cell }"></td>
+					</tr>
+				</tbody>
+				<tfoot data-bind="{ foreach: { data: footer, as: 'row'} }">
+					<tr data-bind="{ foreach: { data: row, as: 'cell'} }">
+						<td data-bind="{ text: cell }"></td>
+					</tr>
+				</tfoot>
+			</table>
+			
+			<button data-sulfur-hook="addRow" data-bind="{ click: addRow }">Add Row</button>
+			<button data-sulfur-hook="deleteRow" data-bind="{ click: deleteRow }">Delete Row</button>
+		</section>
+		<script type="text/javascript">
+			// TODO slow load table
+			$(document).ready(function() {
+				var headerRowCount = 1;
+				var bodyRowCount = 5;
+				var footerRowCount = 1;
+				var columnCount = 5;
+				
+				var vm = {
+					header : ko.observableArray(),
+					body : ko.observableArray(),
+					footer : ko.observableArray(),
+					
+					addRow : function(data, event) {
+						var row = [];
+						
+						for (var c = 0; c < columnCount; c++) {
+							row.push("body" + " row " + data.body().length + " cell " + c);
+						}
+						
+						data.body.push(row);
+					},
+					
+					deleteRow : function(data, event) {
+						data.body.pop();
+					}
+				};
+				
+				ko.applyBindings(vm, $("*[data-sulfur-hook=table]")[0]);
+				
+				var buildTableSection = function(title, rowCount, cellCount) {
+					var rows = [];
+					
+					for (var r = 0; r < rowCount; r++) {
+						var row = [];
+						
+						for (var c = 0; c < cellCount; c++) {
+							row.push(title + " row " + r + " cell " + c);
+						}
+						
+						rows.push(row);
+					}
+					
+					return rows;
+				};
+				
+				vm.header(buildTableSection("header", headerRowCount, columnCount));
+				vm.body(buildTableSection("body", bodyRowCount, columnCount));
+				vm.footer(buildTableSection("footer", footerRowCount, columnCount));
+			});
+		</script>
 	</body>
 </html>

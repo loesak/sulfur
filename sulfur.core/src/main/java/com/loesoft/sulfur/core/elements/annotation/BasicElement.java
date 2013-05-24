@@ -7,8 +7,11 @@ import java.lang.annotation.Target;
 
 import org.openqa.selenium.By;
 
+import com.loesoft.sulfur.core.elements.Basic;
+
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
+@ElementAnnotation(Basic.class)
 public @interface BasicElement {
 	public Class<? extends By> by();
 	public String using();

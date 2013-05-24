@@ -12,18 +12,6 @@ import org.openqa.selenium.WebElement;
  * @author Aaron Loes
  */
 public abstract class TableSection extends Element {
-  private Class<? extends TableRow> rowClass;
-
-  /**
-   * class constructor for TableSection
-   * @param section
-   * @param rowClass
-   * @param columnKeys
-   */
-  public TableSection(WebElement element, Class<? extends TableRow> rowClass) {
-    super(element);
-    this.rowClass = rowClass;
-  }
 
   /**
    * retrieves all rows for the given section
@@ -93,7 +81,7 @@ public abstract class TableSection extends Element {
 
   private TableRow createRow(WebElement tr) {
     try {
-      Constructor<? extends TableRow> constructor = this.rowClass.getConstructor(WebElement.class, Boolean.class);
+      Constructor<? extends TableRow> constructor = TableRow.class.getConstructor(WebElement.class, Boolean.class);
       return constructor.newInstance(tr, Boolean.valueOf(this.element.getTagName().equals("thead")));
     } catch (Exception e) {
       throw new RuntimeException(e);
