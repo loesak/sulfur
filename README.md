@@ -1,3 +1,5 @@
+> 5/24/13 - Correction, the basic testing framework is ready, no work is done for the grid.
+
 > 5/24/13 - The basic framework is finished and is ready for element class creation.
 
 > 5/5/13 - This project is in its conception phase and is not ready for use at this time.
