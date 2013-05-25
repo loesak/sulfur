@@ -30,47 +30,42 @@
 					<family>windows</family>
 				</os>
 			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.googlecode.maven-download-plugin</groupId>
+						<artifactId>maven-download-plugin</artifactId>
+						<version>1.1.0</version>
+						<executions>
+							<execution>
+								<id>install-phantomjs</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>wget</goal>
+								</goals>
+								<configuration>
+									<url>https://phantomjs.googlecode.com/files/phantomjs-1.9.0-windows.zip</url>
+									<unpack>true</unpack>
+									<outputDirectory>${project.build.directory}/phantomjs</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
 			<properties>
-				<phantomjs.download.url>https://phantomjs.googlecode.com/files/phantomjs-1.9.0-windows.zip</phantomjs.download.url>
 				<phantomjs.executable>${project.build.directory}/phantomjs/phantomjs-1.9.0-windows/phantomjs.exe</phantomjs.executable>
 			</properties>
 		</profile>
 		<profile>
-			<id>Linux 64</id>
+			<id>Linux</id>
 			<activation>
 				<os>
 					<family>unix</family>
-					<arch>x64</arch>
 				</os>
 			</activation>
 			<properties>
-				<phantomjs.download.url>https://phantomjs.googlecode.com/files/phantomjs-1.9.0-linux-x86_64.tar.bz2</phantomjs.download.url>
-				<phantomjs.executable>${project.build.directory}/phantomjs/phantomjs-1.9.0-linux-x86_64/bin/phantomjs</phantomjs.executable>
-			</properties>
-		</profile>
-		<profile>
-			<id>Linux 32</id>
-			<activation>
-				<os>
-					<family>unix</family>
-					<arch>x86</arch>
-				</os>
-			</activation>
-			<properties>
-				<phantomjs.download.url>https://phantomjs.googlecode.com/files/phantomjs-1.9.0-linux-i686.tar.bz2</phantomjs.download.url>
-				<phantomjs.executable>${project.build.directory}/phantomjs/phantomjs-1.9.0-linux-i686/bin/phantomjs</phantomjs.executable>
-			</properties>
-		</profile>
-		<profile>
-			<id>Macintosh</id>
-			<activation>
-				<os>
-					<family>mac</family>
-				</os>
-			</activation>
-			<properties>
-				<phantomjs.download.url>https://phantomjs.googlecode.com/files/phantomjs-1.9.0-macosx.zip</phantomjs.download.url>
-				<phantomjs.executable>${project.build.directory}/phantomjs/phantomjs-1.9.0-macosx/bin/phantomjs</phantomjs.executable>
+				<phantomjs.executable>phantomjs</phantomjs.executable>
 			</properties>
 		</profile>
 	</profiles>
@@ -97,25 +92,6 @@
 		<finalName>sulfur.test</finalName>
 
 		<plugins>
-			<plugin>
-				<groupId>com.googlecode.maven-download-plugin</groupId>
-				<artifactId>maven-download-plugin</artifactId>
-				<version>1.1.0</version>
-				<executions>
-					<execution>
-						<id>install-phantomjs</id>
-						<phase>pre-integration-test</phase>
-						<goals>
-							<goal>wget</goal>
-						</goals>
-						<configuration>
-							<url>${phantomjs.download.url}</url>
-							<unpack>true</unpack>
-							<outputDirectory>${project.build.directory}/phantomjs</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 			<plugin>
 				<groupId>org.codehaus.cargo</groupId>
 				<artifactId>cargo-maven2-plugin</artifactId>
