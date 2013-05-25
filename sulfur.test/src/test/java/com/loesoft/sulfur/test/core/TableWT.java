@@ -7,7 +7,7 @@ import com.loesoft.sulfur.core.webdriver.WebDriverBaseTest;
 import com.loesoft.sulfur.test.pages.TestMainPage;
 import com.loesoft.sulfur.test.pages.core.TablePage;
 
-public class TableTest extends WebDriverBaseTest {
+public class TableWT extends WebDriverBaseTest {
 
 	TablePage page;
 	

@@ -1,27 +1,80 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	
+
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<artifactId>test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	
+
 	<name>Sulfur Test</name>
-	
+
 	<parent>
 		<groupId>com.loesoft.sulfur</groupId>
 		<artifactId>parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../parent.xml</relativePath>
 	</parent>
-	
+
 	<properties>
 		<sulfur.core.version>0.0.1-SNAPSHOT</sulfur.core.version>
 		<sulfur.elements.bootstrap.version>0.0.1-SNAPSHOT</sulfur.elements.bootstrap.version>
 		<sulfur.elements.jqueryui.version>0.0.1-SNAPSHOT</sulfur.elements.jqueryui.version>
 	</properties>
-	
+
+	<profiles>
+		<profile>
+			<id>Windows</id>
+			<activation>
+				<os>
+					<family>windows</family>
+				</os>
+			</activation>
+			<properties>
+				<phantomjs.download.url>https://phantomjs.googlecode.com/files/phantomjs-1.9.0-windows.zip</phantomjs.download.url>
+				<phantomjs.executable>${project.build.directory}/phantomjs/phantomjs-1.9.0-windows/phantomjs.exe</phantomjs.executable>
+			</properties>
+		</profile>
+		<profile>
+			<id>Linux 64</id>
+			<activation>
+				<os>
+					<family>unix</family>
+					<arch>x64</arch>
+				</os>
+			</activation>
+			<properties>
+				<phantomjs.download.url>https://phantomjs.googlecode.com/files/phantomjs-1.9.0-linux-x86_64.tar.bz2</phantomjs.download.url>
+				<phantomjs.executable>${project.build.directory}/phantomjs/phantomjs-1.9.0-linux-x86_64/bin/phantomjs</phantomjs.executable>
+			</properties>
+		</profile>
+		<profile>
+			<id>Linux 32</id>
+			<activation>
+				<os>
+					<family>unix</family>
+					<arch>x86</arch>
+				</os>
+			</activation>
+			<properties>
+				<phantomjs.download.url>https://phantomjs.googlecode.com/files/phantomjs-1.9.0-linux-i686.tar.bz2</phantomjs.download.url>
+				<phantomjs.executable>${project.build.directory}/phantomjs/phantomjs-1.9.0-linux-i686/bin/phantomjs</phantomjs.executable>
+			</properties>
+		</profile>
+		<profile>
+			<id>Macintosh</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<properties>
+				<phantomjs.download.url>https://phantomjs.googlecode.com/files/phantomjs-1.9.0-macosx.zip</phantomjs.download.url>
+				<phantomjs.executable>${project.build.directory}/phantomjs/phantomjs-1.9.0-macosx/bin/phantomjs</phantomjs.executable>
+			</properties>
+		</profile>
+	</profiles>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.loesoft.sulfur</groupId>
@@ -39,8 +92,85 @@
 			<version>${sulfur.elements.jqueryui.version}</version>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<finalName>sulfur.test</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>com.googlecode.maven-download-plugin</groupId>
+				<artifactId>maven-download-plugin</artifactId>
+				<version>1.1.0</version>
+				<executions>
+					<execution>
+						<id>install-phantomjs</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>wget</goal>
+						</goals>
+						<configuration>
+							<url>${phantomjs.download.url}</url>
+							<unpack>true</unpack>
+							<outputDirectory>${project.build.directory}/phantomjs</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>cargo-start</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>start</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>cargo-stop</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>stop</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<deployables>
+						<deployable>
+							<groupId>org.codehaus.cargo</groupId>
+							<artifactId>simple-war</artifactId>
+							<type>war</type>
+							<location>${project.build.directory}/sulfur.test</location>
+							<properties>
+								<context>application-context</context>
+							</properties>
+						</deployable>
+					</deployables>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.14.1</version>
+				<executions>
+					<execution>
+						<id>web-test</id>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+						<configuration>
+							<includes>
+								<include>**/*WT.java</include>
+							</includes>
+							<systemPropertyVariables>
+								<webdriver.capability.phantomjs.binary.path>${phantomjs.executable}</webdriver.capability.phantomjs.binary.path>
+							</systemPropertyVariables>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 </project>
