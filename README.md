@@ -8,6 +8,8 @@
 
 Sulfur, it's above Selenium. Literally!
 
+[![Build Status](https://travis-ci.org/loesak/sulfur.png?branch=master)](https://travis-ci.org/loesak/sulfur)
+
 ## What is it?
 
 Sulfur was created to test highly dynamic web applications while at the same time bring better organization and clarity to your web testing. 
