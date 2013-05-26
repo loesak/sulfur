@@ -32,7 +32,7 @@ public class TablesWT extends WebDriverBaseTest {
 	public void verifyTableHeader() {
 		for (int r = 0; r < headerRowCount; r++) {
 			for (int c = 0; c < columCount; c++) {
-				collector.checkThat(page.table.header().row(r).cell(c).text(), is("header row " + r + " cell " + c));
+				this.collector.checkThat(page.table.header().row(r).cell(c).text(), is("header row " + r + " cell " + c));
 			}
 		}
 	}
@@ -41,7 +41,7 @@ public class TablesWT extends WebDriverBaseTest {
 	public void verifyTableBody() {
 		for (int r = 0; r < bodyRowCount; r++) {
 			for (int c = 0; c < columCount; c++) {
-				collector.checkThat(page.table.body().row(r).cell(c).text(), is("body row " + r + " cell " + c));
+				this.collector.checkThat(page.table.body().row(r).cell(c).text(), is("body row " + r + " cell " + c));
 			}
 		}
 	}
@@ -50,26 +50,26 @@ public class TablesWT extends WebDriverBaseTest {
 	public void verifyTableFooter() {
 		for (int r = 0; r < footerRowCount; r++) {
 			for (int c = 0; c < columCount; c++) {
-				collector.checkThat(page.table.footer().row(r).cell(c).text(), is("footer row " + r + " cell " + c));
+				this.collector.checkThat(page.table.footer().row(r).cell(c).text(), is("footer row " + r + " cell " + c));
 			}
 		}
 	}
 	
 	@Test
 	public void verifyDynamism() {
-		collector.checkThat(page.table.body().rows().size(), is(5));
+		this.collector.checkThat(page.table.body().rows().size(), is(5));
 		
 		page.clickOnDeleteRowButtion()
 			.clickOnDeleteRowButtion()
 			.clickOnDeleteRowButtion();
 		
-		collector.checkThat(page.table.body().rows().size(), is(2));
+		this.collector.checkThat(page.table.body().rows().size(), is(2));
 		
 		page.clickOnAddRowButton()
 			.clickOnAddRowButton()
 			.clickOnAddRowButton()
 			.clickOnAddRowButton();
 		
-		collector.checkThat(page.table.body().rows().size(), is(6));
+		this.collector.checkThat(page.table.body().rows().size(), is(6));
 	}
 }
