@@ -12,6 +12,7 @@ import com.loesoft.sulfur.core.elements.annotation.InputElement;
 
 public class Input extends Element implements AnnotatableElement {
 
+	public static final String ATTRIBUTE_FORM = "form";
 	public static final String ATTRIBUTE_TYPE = "type";
 	public static final String ATTRIBUTE_VALUE = "value";
 	public static final String ATTRIBUTE_NAME = "name";
@@ -30,6 +31,14 @@ public class Input extends Element implements AnnotatableElement {
 	public Boolean disabled() {
 		return !this.element.isEnabled();
 	}
+	
+	/*
+	 * FIXME this should really return a Form object representing
+	 * the form for this input.
+	 */
+//	public String form() {
+//		return this.element.getAttribute(ATTRIBUTE_FORM);
+//	}
 	
 	public String type() {
 		return this.element.getAttribute(ATTRIBUTE_TYPE);

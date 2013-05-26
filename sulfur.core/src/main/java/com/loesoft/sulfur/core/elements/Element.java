@@ -2,6 +2,8 @@ package com.loesoft.sulfur.core.elements;
 
 import org.openqa.selenium.WebElement;
 
+import com.loesoft.sulfur.core.elements.forms.Option;
+
 public abstract class Element {
 	public static final String ATTRIBUTE_ACCESSKEY = "accesskey";
 	public static final String ATTRIBUTE_CLASS = "class";
@@ -36,5 +38,23 @@ public abstract class Element {
 	
 	public String attribute(String name) {
 		return this.element.getAttribute(name);
+	}
+	
+	@Override
+	public boolean equals(Object other) {
+		if (other == null) {
+			return false;
+		}
+		
+		if (other == this) {
+			return true;
+		}
+		
+		if (!(this.getClass().isInstance(other))) {
+			return false;
+		}
+		
+		Element element = (Element) other;
+		return element.element.equals(this.element);
 	}
 }

@@ -12,6 +12,10 @@ import com.loesoft.sulfur.core.elements.annotation.ButtonElement;
 
 public class Button extends Element implements AnnotatableElement {
 
+	public static final String ATTRIBUTE_NAME = "name";
+	public static final String ATTRIBUTE_TYPE = "type";
+	public static final String ATTRIBUTE_VALUE = "value";
+	
 	@Override
 	public void initialize(WebDriver driver, Annotation annotation) throws Exception {
 		ButtonElement buttonElement = (ButtonElement) annotation;
@@ -22,4 +26,21 @@ public class Button extends Element implements AnnotatableElement {
 	public Boolean isLoaded() {
 		return this.visible();
 	}
+	
+	public String name() {
+		return this.element.getAttribute(ATTRIBUTE_NAME);
+	}
+	
+	public String type() {
+		return this.element.getAttribute(ATTRIBUTE_TYPE);
+	}
+	
+	public Boolean disabled() {
+		return !this.element.isEnabled();
+	}
+	
+	public String value() {
+		return this.element.getAttribute(ATTRIBUTE_VALUE);
+	}
+	
 }
