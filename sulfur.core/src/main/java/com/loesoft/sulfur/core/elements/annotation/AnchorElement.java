@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 import org.openqa.selenium.By;
 
-import com.loesoft.sulfur.core.elements.Anchor;
+import com.loesoft.sulfur.core.elements.links.Anchor;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)

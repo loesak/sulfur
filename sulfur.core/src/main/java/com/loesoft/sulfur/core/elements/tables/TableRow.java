@@ -1,4 +1,4 @@
-package com.loesoft.sulfur.core.elements;
+package com.loesoft.sulfur.core.elements.tables;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,12 +6,18 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.loesoft.sulfur.core.elements.Element;
+
 /**
  * Represents a row within a table.
  * 
  * @author Aaron Loes
  */
 public class TableRow extends Element {
+	
+	public TableRow(WebElement element) {
+		this.element = element;
+	}
 
 	/**
 	 * retrieves the cell for the row at the given index

@@ -2,8 +2,8 @@ package com.loesoft.sulfur.test.pages;
 
 import org.openqa.selenium.By;
 
-import com.loesoft.sulfur.core.elements.Anchor;
 import com.loesoft.sulfur.core.elements.annotation.AnchorElement;
+import com.loesoft.sulfur.core.elements.links.Anchor;
 import com.loesoft.sulfur.core.properties.ExecutionProperties;
 import com.loesoft.sulfur.core.webdriver.WebDriverPageObject;
 import com.loesoft.sulfur.test.pages.bootstrap.BootstrapMainPage;

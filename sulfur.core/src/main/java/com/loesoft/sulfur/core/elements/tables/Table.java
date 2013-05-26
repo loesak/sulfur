@@ -1,4 +1,4 @@
-package com.loesoft.sulfur.core.elements;
+package com.loesoft.sulfur.core.elements.tables;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
@@ -6,6 +6,8 @@ import java.lang.reflect.Constructor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import com.loesoft.sulfur.core.elements.Element;
+import com.loesoft.sulfur.core.elements.annotation.AnnotatableElement;
 import com.loesoft.sulfur.core.elements.annotation.TableElement;
 
 /**

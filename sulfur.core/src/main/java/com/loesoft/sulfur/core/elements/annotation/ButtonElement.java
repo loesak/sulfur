@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 import org.openqa.selenium.By;
 
-import com.loesoft.sulfur.core.elements.Button;
+import com.loesoft.sulfur.core.elements.forms.Button;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)

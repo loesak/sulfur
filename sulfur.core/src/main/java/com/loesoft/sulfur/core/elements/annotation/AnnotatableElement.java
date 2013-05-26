@@ -1,4 +1,4 @@
-package com.loesoft.sulfur.core.elements;
+package com.loesoft.sulfur.core.elements.annotation;
 
 import java.lang.annotation.Annotation;
 

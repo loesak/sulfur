@@ -12,8 +12,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.loesoft.sulfur.core.elements.AnnotatableElement;
 import com.loesoft.sulfur.core.elements.Element;
+import com.loesoft.sulfur.core.elements.annotation.AnnotatableElement;
 import com.loesoft.sulfur.core.elements.annotation.ElementAnnotation;
 
 /**

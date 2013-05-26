@@ -7,10 +7,10 @@ import java.lang.annotation.Target;
 
 import org.openqa.selenium.By;
 
-import com.loesoft.sulfur.core.elements.Table;
-import com.loesoft.sulfur.core.elements.TableBody;
-import com.loesoft.sulfur.core.elements.TableFooter;
-import com.loesoft.sulfur.core.elements.TableHeader;
+import com.loesoft.sulfur.core.elements.tables.Table;
+import com.loesoft.sulfur.core.elements.tables.TableBody;
+import com.loesoft.sulfur.core.elements.tables.TableFooter;
+import com.loesoft.sulfur.core.elements.tables.TableHeader;
 
 /**
  * Annotation for marking an object as a TableObject
