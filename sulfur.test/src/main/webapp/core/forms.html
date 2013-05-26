@@ -1,0 +1,194 @@
+<html>
+	<head>
+		<script type="text/javascript" src="/sulfur.test/js/lib/jquery/jquery-2.0.0.min.js"></script>
+		<script type="text/javascript" src="/sulfur.test/js/lib/knockout/knockout-2.2.1.js"></script>
+	</head>
+	<body>
+		<form>
+			<fieldset>
+				<legend>input</legend>
+				
+				<label for="button">button</label>
+				<input name="button" type="button" value="button" data-sulfur-hook="buttonInput" data-bind="{ disable: disabled }"></input>
+				<br/>
+				
+				<label for="checkbox">checkbox</label>
+				<input name="checkbox" type="checkbox" data-sulfur-hook="checkboxInput" value="checkbox" data-bind="{ disable: disabled }"></input>
+				<br/>
+				
+<!-- 				<label for="color">color</label> -->
+<!-- 				<input name="color" type="color" data-sulfur-hook="colorInput" data-bind="{ disable: disabled }"></input> -->
+<!-- 				<br/> -->
+				
+<!-- 				<label for="date">date</label> -->
+<!-- 				<input name="date" type="date" data-sulfur-hook="dateInput" data-bind="{ disable: disabled }"></input> -->
+<!-- 				<br/> -->
+				
+<!-- 				<label for="datetime">datetime</label> -->
+<!-- 				<input name="datetime" type="datetime" data-sulfur-hook="datetimeInput" data-bind="{ disable: disabled }"></input> -->
+<!-- 				<br/> -->
+				
+<!-- 				<label for="datetime-local">datetime-local</label> -->
+<!-- 				<input name="datetime-local" type="datetime-local" data-sulfur-hook="datetime-localInput" data-bind="{ disable: disabled }"></input> -->
+<!-- 				<br/> -->
+				
+<!-- 				<label for="email">email</label> -->
+<!-- 				<input name="email" type="email" data-sulfur-hook="emailInput" data-bind="{ disable: disabled }"></input> -->
+<!-- 				<br/> -->
+				
+				<label for="file">file</label>
+				<input name="file" type="file" data-sulfur-hook="fileInput" data-bind="{ disable: disabled }"></input>
+				<br/>
+				
+				<label for="image">image</label>
+				<input name="image" type="image" data-sulfur-hook="imageInput" data-bind="{ disable: disabled }"></input>
+				<br/>
+				
+<!-- 				<label for="month">month</label> -->
+<!-- 				<input name="month" type="month" data-sulfur-hook="monthInput" data-bind="{ disable: disabled }"></input> -->
+<!-- 				<br/> -->
+				
+<!-- 				<label for="number">number</label> -->
+<!-- 				<input name="number" type="number" data-sulfur-hook="numberInput" data-bind="{ disable: disabled }"></input> -->
+<!-- 				<br/> -->
+				
+				<label for="password">password</label>
+				<input name="password" type="password" data-sulfur-hook="passwordInput" data-bind="{ disable: disabled }"></input>
+				<br/>
+				
+				<label for="radio">radio</label>
+				<input name="radio" type="radio" data-sulfur-hook="radio1Input" data-bind="{ disable: disabled }">1</input>
+				<input name="radio" type="radio" data-sulfur-hook="radio2Input" data-bind="{ disable: disabled }">2</input>
+				<input name="radio" type="radio" data-sulfur-hook="radio3Input" data-bind="{ disable: disabled }">3</input>
+				<br/>
+				
+<!-- 				<label for="range">range</label> -->
+<!-- 				<input name="range" type="range" data-sulfur-hook="rangeInput" data-bind="{ disable: disabled }"></input> -->
+<!-- 				<br/> -->
+				
+				<label for="reset">reset</label>
+				<input name="reset" type="reset" value="reset" data-sulfur-hook="resetInput" data-bind="{ disable: disabled }"></input>
+				<br/>
+				
+<!-- 				<label for="search">search</label> -->
+<!-- 				<input name="search" type="search" data-sulfur-hook="searchInput" data-bind="{ disable: disabled }"></input> -->
+<!-- 				<br/> -->
+				
+				<label for="submit">submit</label>
+				<input name="submit" type="submit" value="submit" data-sulfur-hook="submitInput" data-bind="{ disable: disabled }"></input>
+				<br/>
+				
+<!-- 				<label for="tel">tel</label> -->
+<!-- 				<input name="tel" type="tel" data-sulfur-hook="telInput" data-bind="{ disable: disabled }"></input> -->
+<!-- 				<br/> -->
+				
+				<label for="text">text</label>
+				<input name="text" type="text" data-sulfur-hook="textInput" data-bind="{ disable: disabled }"></input>
+				<br/>
+				
+<!-- 				<label for="time">time</label> -->
+<!-- 				<input name="time" type="time" data-sulfur-hook="timeInput" data-bind="{ disable: disabled }"></input> -->
+<!-- 				<br/> -->
+				
+<!-- 				<label for="url">url</label> -->
+<!-- 				<input name="url" type="url" data-sulfur-hook="urlInput" data-bind="{ disable: disabled }"></input> -->
+<!-- 				<br/> -->
+				
+<!-- 				<label for="week">week</label> -->
+<!-- 				<input name="week" type="week" data-sulfur-hook="weekInput" data-bind="{ disable: disabled }"></input> -->
+			</fieldset>
+			
+			<fieldset>
+				<legend>textarea</legend>
+				<textarea name="textarea" data-sulfur-hook="textarea" data-bind="{ disable: disabled }"></textarea>
+			</fieldset>
+			
+			<fieldset>
+				<legend>button</legend>
+				<button name="button" data-sulfur-hook="button" data-bind="{ disable: disabled }">button</button>
+			</fieldset>
+			
+			<fieldset>
+				<legend>select</legend>
+				
+				<label>single select</label>
+				<select data-sulfur-hook="single-select" data-bind="{ disable: disabled }">
+					<optgroup label="optgroup 1">
+						<option>option 1</option>
+						<option>option 2</option>
+						<option>option 3</option>
+						<option>option 4</option>
+					</optgroup>
+					<optgroup label="optgroup 2">
+						<option>option 1</option>
+						<option>option 2</option>
+						<option>option 3</option>
+					</optgroup>
+					<optgroup label="optgroup 3">
+						<option>option 1</option>
+						<option>option 2</option>
+					</optgroup>
+				</select>
+				<br/>
+				
+				<label>multi select</label>
+				<select multiple="multiple" data-sulfur-hook="multi-select" data-bind="{ disable: disabled }">
+					<optgroup label="optgroup 1">
+						<option>option 1</option>
+						<option>option 2</option>
+						<option>option 3</option>
+						<option>option 4</option>
+					</optgroup>
+					<optgroup label="optgroup 2">
+						<option>option 1</option>
+						<option>option 2</option>
+						<option>option 3</option>
+					</optgroup>
+					<optgroup label="optgroup 3">
+						<option>option 1</option>
+						<option>option 2</option>
+					</optgroup>
+				</select>
+			</fieldset>
+		</form>
+		
+		<button data-sulfur-hook="disableButton" data-bind="{ click: disable }">Disable</button>
+		<br/>
+		
+		<button data-sulfur-hook="enableButton" data-bind="{ click: enable }">Enable</button>
+		<br/>
+		
+		<script type="text/javascript">
+			// TODO slow load table
+			$(document).ready(function() {
+				var vm = {
+					disabled : ko.observable(false),
+						
+					buttonInput : ko.observable(),
+					checkboxInput : ko.observable(),
+					fileInput : ko.observable(),
+					imageInput : ko.observable(),
+					passworInputd : ko.observable(),
+					radioInput : ko.observable(),
+					resetInput : ko.observable(),
+					submitInput : ko.observable(),
+					texInput : ko.observable(),
+					textArea : ko.observable(),
+					button : ko.observable(),
+					singleSelect : ko.observable(),
+					multiSelect : ko.observable(),
+					
+					disable : function(data, event) {
+						data.disabled(true);
+					},
+					
+					enable : function(data, event) {
+						data.disabled(false);
+					}
+				};
+				
+				ko.applyBindings(vm, $("*[data-sulfur-hook=table]")[0]);
+			});
+		</script>
+	</body>
+</html>
