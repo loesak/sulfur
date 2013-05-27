@@ -1,5 +1,482 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bootstrap, from Twitter</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		
+		<!-- Le styles -->
+		<link href="/sulfur.test/css/bootstrap.css" rel="stylesheet">
+		<style>
+		body {
+			padding-top: 60px;
+			/* 60px to make the container go all the way to the bottom of the topbar */
+		}
+		</style>
+		<link href="/sulfur.test/css/bootstrap-responsive.css" rel="stylesheet">
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		      <script src="/sulfur.test/js/html5shiv.js"></script>
+		    <![endif]-->
+		
+		<!-- Fav and touch icons -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/sulfur.test/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/sulfur.test/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/sulfur.test/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="/sulfur.test/ico/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="/sulfur.test/ico/favicon.png">
+		
+		<script src="/sulfur.test/js/lib/jquery/jquery-2.0.0.min.js"></script>
+		<script src="/sulfur.test/js/lib/bootstrap/bootstrap.min.js"></script>
+	</head>
+
 	<body>
-		<h1>Sulfur Bootstrap Elements</h1>
+	
+		<div class="container">
+	
+			<h1>Alert</h1>
+			<div class="alert">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>Default!</strong> Best check yo self, you're not looking too good.
+			</div>
+			<div class="alert alert-error">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>Error!</strong> Best check yo self, you're not looking too good.
+			</div>
+			<div class="alert alert-success">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>Success!</strong> Best check yo self, you're not looking too good.
+			</div>
+			<div class="alert alert-info">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>Info!</strong> Best check yo self, you're not looking too good.
+			</div>
+			<hr/>
+
+			<h1>Breadcrumb</h1>
+			<ul class="breadcrumb">
+				<li><a href="#">Home</a> <span class="divider">/</span></li>
+				<li><a href="#">Library</a> <span class="divider">/</span></li>
+				<li class="active">Data</li>
+			</ul>
+			<hr/>
+			
+			<h1>Button</h1>
+			<h2>Basic</h2>
+			<button data-sulfur-hook="buttonBasic" type="button" class="btn btn-large">Basic</button>
+			
+			Toggle:
+			<button data-sulfur-hook="buttonBasicDefault" type="button" class="btn">Default</button>
+			<button data-sulfur-hook="buttonBasicPrimary" type="button" class="btn btn-primary">Primary</button>
+			<button data-sulfur-hook="buttonBasicInfo" type="button" class="btn btn-info">Info</button>
+			<button data-sulfur-hook="buttonBasicSuccess" type="button" class="btn btn-success">Success</button>
+			<button data-sulfur-hook="buttonBasicWarning" type="button" class="btn btn-warning">Warning</button>
+			<button data-sulfur-hook="buttonBasicDanger" type="button" class="btn btn-danger">Danger</button>
+			<button data-sulfur-hook="buttonBasicInverse" type="button" class="btn btn-inverse">Inverse</button>
+			<button data-sulfur-hook="buttonBasicLink" type="button" class="btn btn-link">Link</button>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					var targetButton = $("*[data-sulfur-hook=buttonBasic]");
+					
+					var toggleButtons = [
+					 "buttonBasicDefault", "buttonBasicPrimary", "buttonBasicInfo", "buttonBasicSuccess",
+					 "buttonBasicWarning", "buttonBasicDanger", "buttonBasicInverse", "buttonBasicLink"
+					];
+					
+					for (var index in toggleButtons) {
+						$("*[data-sulfur-hook=" + toggleButtons[index] + "]").click(function() {
+							if ($(this).text().toLowerCase() === "default") {
+								targetButton.attr("class", "btn btn-large");
+							} else {
+								targetButton.attr("class", "btn btn-large btn-" + $(this).text().toLowerCase());
+							}
+						});
+					}
+				});
+			</script>
+			
+			<h2>Sizes</h2>
+			<button data-sulfur-hook="buttonSize" type="button" class="btn">Default</button>
+			Toggle: 
+			<button data-sulfur-hook="buttonSizeLarge" type="button" class="btn btn-large">Large</button>
+			<button data-sulfur-hook="buttonSizeDefault" type="button" class="btn">Default</button>
+			<button data-sulfur-hook="buttonSizeSmall" type="button" class="btn btn-small">Small</button>
+			<button data-sulfur-hook="buttonSizeMini" type="button" class="btn btn-mini">Mini</button>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					var targetButton = $("*[data-sulfur-hook=buttonSize]");
+					
+					var toggleButtons = ["buttonSizeLarge", "buttonSizeDefault", "buttonSizeSmall", "buttonSizeMini"];
+					
+					for (var index in toggleButtons) {
+						$("*[data-sulfur-hook=" + toggleButtons[index] + "]").click(function() {
+							if ($(this).text().toLowerCase() === "default") {
+								targetButton.attr("class", "btn");
+							} else {
+								targetButton.attr("class", "btn btn-" + $(this).text().toLowerCase());
+							}
+						});
+					}
+				});
+			</script>
+			
+			<h2>Disabled State</h2>
+			<button data-sulfur-hook="buttonDisabledButton" type="button" class="btn">As a button</button>
+			<a data-sulfur-hook="buttonDisabledAnchor" href="javascript:void(0);" class="btn">As an anchor</a>
+			<input data-sulfur-hook="buttonDisabledInput" type="button" class="btn" value="As an input"></input>
+			Toggle:
+			<button data-sulfur-hook="buttonDisableButtonDisable" type="button" class="btn">Disable</button>
+			<button data-sulfur-hook="buttonDisableButtonEnable" type="button" class="btn">Enable</button>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					var targetButtons = [
+							$("*[data-sulfur-hook=buttonDisabledButton]"), 
+							$("*[data-sulfur-hook=buttonDisabledAnchor]"), 
+							$("*[data-sulfur-hook=buttonDisabledInput]")
+						];
+					
+					$("*[data-sulfur-hook=buttonDisableButtonDisable]").click(function() {
+						targetButtons[0].prop("disabled", true);
+						targetButtons[1].addClass("disabled");
+						targetButtons[2].prop("disabled", true);
+					});
+					
+					$("*[data-sulfur-hook=buttonDisableButtonEnable]").click(function() {
+						targetButtons[0].prop("disabled", false);
+						targetButtons[1].removeClass("disabled");
+						targetButtons[2].prop("disabled", false);
+					});
+				});
+			</script>
+			
+			<h2>Loading State</h2>
+			<button data-sulfur-hook="buttonLoadingStateButton" type="button" class="btn btn-primary" data-loading-text="Loading...">Click</button>
+			<button data-sulfur-hook="buttonLoadingStateButtonReset" type="button" class="btn ">Reset</button>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$("*[data-sulfur-hook=buttonLoadingStateButton]").click(function() {
+						$(this).button("loading");
+					});
+					
+					$("*[data-sulfur-hook=buttonLoadingStateButtonReset]").click(function() {
+						$("*[data-sulfur-hook=buttonLoadingStateButton]").button("reset");
+					});
+				});
+			</script>
+			
+			<h2>Toggle</h2>
+			<button data-sulfur-hook="buttonToggle" type="button" class="btn btn-primary" data-toggle="button">Single Toggle</button>
+			<hr/>
+
+			<h1>ButtonDropdown</h1>
+			<div class="btn-group">
+				<button class="btn dropdown-toggle" data-toggle="dropdown">Standard <span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">Action</a></li>
+					<li><a href="#">Another action</a></li>
+					<li><a href="#">Something else here</a></li>
+					<li class="divider"></li>
+					<li><a href="#">Separated link</a></li>
+				</ul>
+			</div>
+			
+			<div class="btn-group">
+				<button class="btn">Split</button>
+				<button class="btn dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a href="#">Action</a></li>
+					<li><a href="#">Another action</a></li>
+					<li><a href="#">Something else here</a></li>
+					<li class="divider"></li>
+					<li><a href="#">Separated link</a></li>
+				</ul>
+			</div>
+			<hr />
+
+			<h1>ButtonGroup</h1>
+			<h2>Basic</h2>
+			<div class="btn-group">
+				<button type="button" class="btn">Left</button>
+				<button type="button" class="btn">Middle</button>
+				<button type="button" class="btn">Right</button>
+			</div>
+			
+			<h2>Checkbox</h2>
+			<div class="btn-group" data-toggle="buttons-checkbox">
+				<button type="button" class="btn">Left</button>
+				<button type="button" class="btn">Middle</button>
+				<button type="button" class="btn">Right</button>
+			</div>
+
+			<h2>Radio</h2>
+			<div class="btn-group" data-toggle="buttons-radio">
+				<button type="button" class="btn">Left</button>
+				<button type="button" class="btn">Middle</button>
+				<button type="button" class="btn">Right</button>
+			</div>
+			<hr/>
+			
+			<h1>Carousel</h1>
+			<div id="myCarousel" class="carousel slide" data-interval="5000">
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1" class=""></li>
+					<li data-target="#myCarousel" data-slide-to="2" class=""></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="/sulfur.test/img/bootstrap-mdo-sfmoma-01.jpg" alt="">
+						<div class="carousel-caption">
+							<h4>First Thumbnail label</h4>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget
+								quam. Donec id elit non mi porta gravida at eget metus. Nullam id
+								dolor id nibh ultricies vehicula ut id elit.</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="/sulfur.test/img/bootstrap-mdo-sfmoma-02.jpg" alt="">
+						<div class="carousel-caption">
+							<h4>Second Thumbnail label</h4>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget
+								quam. Donec id elit non mi porta gravida at eget metus. Nullam id
+								dolor id nibh ultricies vehicula ut id elit.</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="/sulfur.test/img/bootstrap-mdo-sfmoma-03.jpg" alt="">
+						<div class="carousel-caption">
+							<h4>Third Thumbnail label</h4>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget
+								quam. Donec id elit non mi porta gravida at eget metus. Nullam id
+								dolor id nibh ultricies vehicula ut id elit.</p>
+						</div>
+					</div>
+				</div>
+				<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+			</div>
+			<hr/>
+			
+			<h1>Collapse</h1>
+			<h2>Accordion</h2>
+			<div class="accordion" id="accordion">
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse"
+							data-parent="#accordion" href="#collapseOne"> Collapsible
+							Group Item #1 </a>
+					</div>
+					<div id="collapseOne" class="accordion-body collapse in">
+						<div class="accordion-inner">Anim pariatur cliche...</div>
+					</div>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse"
+							data-parent="#accordion" href="#collapseTwo"> Collapsible
+							Group Item #2 </a>
+					</div>
+					<div id="collapseTwo" class="accordion-body collapse">
+						<div class="accordion-inner">Anim pariatur cliche...</div>
+					</div>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse"
+							data-parent="#accordion" href="#collapseThree"> Collapsible
+							Group Item #3 </a>
+					</div>
+					<div id="collapseThree" class="accordion-body collapse">
+						<div class="accordion-inner">Anim pariatur cliche...</div>
+					</div>
+				</div>
+			</div>
+			
+			<h2>Button</h2>
+			<button type="button" class="btn" data-toggle="collapse" data-target="#demo">simple collapsible</button>
+			<div id="demo" class="collapse in">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
+					ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+					laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+					in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
+					cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+			<hr/>
+			
+			<h1>Dropdown</h1>
+			TODO: menu's, sub-menus, alignment, dividers, disabled menu items, 
+			<hr/>
+			
+			<h1>Modal</h1>
+			TODO:
+			<hr/>
+			
+			<h1>Nav</h1>
+			<h2>Tabs</h2>
+			<div class="tabbable">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#tab11" data-toggle="tab">Active</a></li>
+					<li><a href="#tab12" data-toggle="tab">Normal</a></li>
+					<li class="disabled"><a href="#tab13" data-toggle="tab">Disabled</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#tab14" data-toggle="tab">Action</a></li>
+							<li><a href="#tab15" data-toggle="tab">Another action</a></li>
+							<li><a href="#tab16" data-toggle="tab">Something else here</a></li>
+							<li class="divider"></li>
+							<li><a href="#tab17" data-toggle="tab">Separated link</a></li>
+						</ul>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab11">
+						<p>I'm in Section 1
+					</div>
+					<div class="tab-pane" id="tab12">
+						<p>I'm in Section 2
+					</div>
+					<div class="tab-pane" id="tab13">
+						<p>I'm in Section 3
+					</div>
+					<div class="tab-pane" id="tab14">
+						<p>I'm in Section 4
+					</div>
+					<div class="tab-pane" id="tab15">
+						<p>I'm in Section 5
+					</div>
+					<div class="tab-pane" id="tab16">
+						<p>I'm in Section 6
+					</div>
+					<div class="tab-pane" id="tab17">
+						<p>I'm in Section 7
+					</div>
+				</div>
+			</div>
+			
+			<h2>Pills</h2>
+			<div class="tabbable">
+				<ul class="nav nav-pills">
+					<li class="active"><a href="#tab21" data-toggle="tab">Active</a></li>
+					<li><a href="#tab22" data-toggle="tab">Normal</a></li>
+					<li class="disabled"><a href="#tab23" data-toggle="tab">Disabled</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#tab24" data-toggle="tab">Action</a></li>
+							<li><a href="#tab25" data-toggle="tab">Another action</a></li>
+							<li><a href="#tab26" data-toggle="tab">Something else here</a></li>
+							<li class="divider"></li>
+							<li><a href="#tab27" data-toggle="tab">Separated link</a></li>
+						</ul>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab21">
+						<p>I'm in Section 1
+					</div>
+					<div class="tab-pane" id="tab22">
+						<p>I'm in Section 2
+					</div>
+					<div class="tab-pane" id="tab23">
+						<p>I'm in Section 3
+					</div>
+					<div class="tab-pane" id="tab24">
+						<p>I'm in Section 4
+					</div>
+					<div class="tab-pane" id="tab25">
+						<p>I'm in Section 5
+					</div>
+					<div class="tab-pane" id="tab26">
+						<p>I'm in Section 6
+					</div>
+					<div class="tab-pane" id="tab27">
+						<p>I'm in Section 7
+					</div>
+				</div>
+			</div>
+			
+			<h2>Stacked</h2>
+			<ul class="nav nav-tabs nav-stacked">
+				<li class="active"><a href="#">Active</a></li>
+				<li><a href="#">Normal</a></li>
+				<li class="disabled"><a href="#">Disabled</a></li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Action</a></li>
+						<li><a href="#">Another action</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+					</ul>
+				</li>
+			</ul>
+			
+			<h2>List</h2>
+			<div class="well">
+				<ul class="nav nav-list">
+					<li class="nav-header">List header</li>
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Library</a></li>
+					<li><a href="#">Applications</a></li>
+					<li class="nav-header">Another list header</li>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Settings</a></li>
+					<li class="disabled"><a href="#">Disabled</a></li>
+					<li class="divider"></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+			</div>
+			<hr/>
+			
+			<h1>Navbar</h1>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<a class="brand" href="#">Title</a>
+					<ul class="nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+					</ul>
+				</div>
+			</div>
+			<hr/>
+			
+			<h1>Pagination</h1>
+			<div class="pagination">
+				<ul>
+					<li><a href="#">Prev</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">Next</a></li>
+				</ul>
+			</div>
+			<hr/>
+			
+			<h1>ProgressBar</h1>
+			<div class="progress progress-striped active">
+				<div class="bar" style="width: 25%;"></div>
+				<div class="bar bar-success" style="width: 20%;"></div>
+				<div class="bar bar-warning" style="width: 10%;"></div>
+				<div class="bar bar-danger" style="width: 5%;"></div>
+			</div>
+			<hr/>
+			
+			<h1>Typeahead</h1>
+			<input type="text" class="span3" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;California&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]">
+			<hr/>
+
+		</div>
+	
 	</body>
 </html>

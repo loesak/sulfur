@@ -27,12 +27,12 @@ public class TestMainPage extends WebDriverPageObject {
 	}
 
 	public BootstrapMainPage clickOnBootstrapLink() {
-		this.coreLink.click();
+		this.bootstrapLink.click();
 		return WebDriverPageObject.get(BootstrapMainPage.class);
 	}
 
 	public JqueryUiMainPage clickOnJqueryLink() {
-		this.coreLink.click();
+		this.jqueryuiLink.click();
 		return WebDriverPageObject.get(JqueryUiMainPage.class);
 	}
 
