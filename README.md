@@ -1,9 +1,3 @@
-> 5/24/13 - Correction, the basic testing framework is ready, no work is done for the grid.
-
-> 5/24/13 - The basic framework is finished and is ready for element class creation.
-
-> 5/5/13 - This project is in its conception phase and is not ready for use at this time.
-
 # Sulfur
 
 Sulfur, it's above Selenium. Literally!
@@ -23,6 +17,16 @@ Use Sulfur's page objects and custom web elements to define the structure and be
 Want your tests to seamlessly interact with the popular widget frameworks like [Twitter Bootstrap][1] or [jQueryUI][2]? We can do that.
 
 Looking to run your tests locally but have them execute remotely and distributed? No problem. Sulfur has full support for the Selenium Grid.
+
+## Updates
+
+> 5/27/13 - Delivered the initial code for bootstrap testing (basic buttons only implemented). Looking to keep working on this for the rest of the week.
+
+> 5/24/13 - Correction, the basic testing framework is ready, no work is done for the grid.
+
+> 5/24/13 - The basic framework is finished and is ready for element class creation.
+
+> 5/5/13 - This project is in its conception phase and is not ready for use at this time.
 
 [1]: http://twitter.github.io/bootstrap/ "Twitter Bootstrap"
 [2]: http://jqueryui.com/ "jQueryUI"
