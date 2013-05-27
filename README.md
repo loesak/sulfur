@@ -16,7 +16,15 @@ Use Sulfur's page objects and custom web elements to define the structure and be
 
 Want your tests to seamlessly interact with the popular widget frameworks like [Twitter Bootstrap][1] or [jQueryUI][2]? We can do that.
 
+Want your tests to be written in the language of your application? We have support for supplying your own element definitions.
+
 Looking to run your tests locally but have them execute remotely and distributed? No problem. Sulfur has full support for the Selenium Grid.
+
+## Build Instructions
+
+Check out source code and run `mvn install` on sulfur/pom.xml.
+
+The build expects you to have FireFox installed. If you do not, then you can switch your browser by supplying the system property of `webdriver.browser.name` to any value `android`, `chrome`, `firefox`, `htmlunit`, `internetexplorer`, `iphone`, `opera`, `phantom`, `remote`, or `safari`. Depending on the browser you pick, additional system properties may need to be set.
 
 ## Updates
 

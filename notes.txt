@@ -1,0 +1,20 @@
+PLAN:
+* build out HTML DSL for core elements
+* build out HTML DSL for bootstrap elements
+* build in ability for application DSL for core elements
+* build in ability for application DSL for bootstrap elements
+* build in Selenium Grid support
+* execute tests in Grid
+* build out HTML DSL for jqueryui elements
+* build in ability for application DSL for jqueryui elements
+* build in support for old Selenium
+* build in support for old Selenese
+
+NOTES:
+* build in "hook" for annotations to automatically look for "data-sulfur-hook" attribute
+* remove all xpath for complete IE support
+* 
+
+FEATURES IN QUESTION:
+* build in support for old Selenium
+* build in support for old Selenese
