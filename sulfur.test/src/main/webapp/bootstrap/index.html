@@ -154,12 +154,22 @@
 			</script>
 			
 			<h2>Loading State</h2>
-			<button data-sulfur-hook="buttonLoadingStateButton" type="button" class="btn btn-primary" data-loading-text="Loading...">Click</button>
+			<button data-sulfur-hook="buttonLoadingStateButton" type="button" class="btn btn-primary" data-loading-text="Loading..." data-complete-text="Complete!" data-failed-text="Failed!">Click</button>
 			<button data-sulfur-hook="buttonLoadingStateButtonReset" type="button" class="btn ">Reset</button>
+			<button data-sulfur-hook="buttonLoadingStateButtonComplete" type="button" class="btn ">Complete</button>
+			<button data-sulfur-hook="buttonLoadingStateButtonFailed" type="button" class="btn ">Failed</button>
 			<script type="text/javascript">
 				$(document).ready(function() {
 					$("*[data-sulfur-hook=buttonLoadingStateButton]").click(function() {
 						$(this).button("loading");
+					});
+					
+					$("*[data-sulfur-hook=buttonLoadingStateButtonComplete]").click(function() {
+						$("*[data-sulfur-hook=buttonLoadingStateButton]").button("complete");
+					});
+					
+					$("*[data-sulfur-hook=buttonLoadingStateButtonFailed]").click(function() {
+						$("*[data-sulfur-hook=buttonLoadingStateButton]").button("failed");
 					});
 					
 					$("*[data-sulfur-hook=buttonLoadingStateButtonReset]").click(function() {
@@ -172,7 +182,29 @@
 			<button data-sulfur-hook="buttonToggle" type="button" class="btn btn-primary" data-toggle="button">Single Toggle</button>
 			<hr/>
 
-			<h1>ButtonDropdown</h1>
+			<h1>ButtonGroup</h1>
+			<h2>Basic</h2>
+			<div class="btn-group">
+				<button type="button" class="btn">Left</button>
+				<button type="button" class="btn">Middle</button>
+				<button type="button" class="btn">Right</button>
+			</div>
+			
+			<h2>Checkbox</h2>
+			<div class="btn-group" data-toggle="buttons-checkbox">
+				<button type="button" class="btn">Left</button>
+				<button type="button" class="btn">Middle</button>
+				<button type="button" class="btn">Right</button>
+			</div>
+
+			<h2>Radio</h2>
+			<div class="btn-group" data-toggle="buttons-radio">
+				<button type="button" class="btn">Left</button>
+				<button type="button" class="btn">Middle</button>
+				<button type="button" class="btn">Right</button>
+			</div>
+			
+			<h2>Dropdown</h2>
 			<div class="btn-group">
 				<button class="btn dropdown-toggle" data-toggle="dropdown">Standard <span class="caret"></span></button>
 				<ul class="dropdown-menu">
@@ -196,29 +228,6 @@
 					<li class="divider"></li>
 					<li><a href="#">Separated link</a></li>
 				</ul>
-			</div>
-			<hr />
-
-			<h1>ButtonGroup</h1>
-			<h2>Basic</h2>
-			<div class="btn-group">
-				<button type="button" class="btn">Left</button>
-				<button type="button" class="btn">Middle</button>
-				<button type="button" class="btn">Right</button>
-			</div>
-			
-			<h2>Checkbox</h2>
-			<div class="btn-group" data-toggle="buttons-checkbox">
-				<button type="button" class="btn">Left</button>
-				<button type="button" class="btn">Middle</button>
-				<button type="button" class="btn">Right</button>
-			</div>
-
-			<h2>Radio</h2>
-			<div class="btn-group" data-toggle="buttons-radio">
-				<button type="button" class="btn">Left</button>
-				<button type="button" class="btn">Middle</button>
-				<button type="button" class="btn">Right</button>
 			</div>
 			<hr/>
 			

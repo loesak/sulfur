@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import com.loesoft.sulfur.core.webdriver.WebDriverPageObject;
 import com.loesoft.sulfur.elements.bootstrap.Button;
 import com.loesoft.sulfur.elements.bootstrap.annotation.ButtonElement;
+import com.loesoft.sulfur.elements.bootstrap.button.ButtonStateful;
+import com.loesoft.sulfur.elements.bootstrap.button.ButtonToggle;
 
 public class BootstrapMainPage extends WebDriverPageObject {
 
@@ -69,6 +71,21 @@ public class BootstrapMainPage extends WebDriverPageObject {
 	
 	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=buttonDisableButtonEnable]")
 	public Button buttonDisableButtonEnable; 
+	
+	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=buttonLoadingStateButton]")
+	public ButtonStateful buttonLoadingStateButton; 
+	
+	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=buttonLoadingStateButtonReset]")
+	public Button buttonLoadingStateButtonReset; 
+	
+	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=buttonLoadingStateButtonComplete]")
+	public Button buttonLoadingStateButtonComplete; 
+	
+	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=buttonLoadingStateButtonFailed]")
+	public Button buttonLoadingStateButtonFailed; 
+	
+	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=buttonToggle]")
+	public ButtonToggle buttonToggle;
 	
 	// button dropdown
 	

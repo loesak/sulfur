@@ -1,4 +1,4 @@
-package com.loesoft.sulfur.elements.bootstrap.button;
+package com.loesoft.sulfur.elements.bootstrap.buttonGroup;
 
 import java.lang.annotation.Annotation;
 

@@ -89,11 +89,39 @@ public class ButtonWT extends WebDriverBaseTest {
 	
 	@Test
 	public void verifyLoadingState() {
+		this.collector.checkThat(this.page.buttonLoadingStateButton.isState("loading"), is(false));
+		this.collector.checkThat(this.page.buttonLoadingStateButton.isState("complete"), is(false));
+		this.collector.checkThat(this.page.buttonLoadingStateButton.isState("failed"), is(false));
 		
+		this.page.buttonLoadingStateButton.click();
+		this.collector.checkThat(this.page.buttonLoadingStateButton.isState("loading"), is(true));
+		this.collector.checkThat(this.page.buttonLoadingStateButton.isState("complete"), is(false));
+		this.collector.checkThat(this.page.buttonLoadingStateButton.isState("failed"), is(false));
+		
+		this.page.buttonLoadingStateButtonComplete.click();
+		this.collector.checkThat(this.page.buttonLoadingStateButton.isState("loading"), is(false));
+		this.collector.checkThat(this.page.buttonLoadingStateButton.isState("complete"), is(true));
+		this.collector.checkThat(this.page.buttonLoadingStateButton.isState("failed"), is(false));
+		
+		this.page.buttonLoadingStateButtonFailed.click();
+		this.collector.checkThat(this.page.buttonLoadingStateButton.isState("loading"), is(false));
+		this.collector.checkThat(this.page.buttonLoadingStateButton.isState("complete"), is(false));
+		this.collector.checkThat(this.page.buttonLoadingStateButton.isState("failed"), is(true));
+		
+		this.page.buttonLoadingStateButtonReset.click();
+		this.collector.checkThat(this.page.buttonLoadingStateButton.isState("loading"), is(false));
+		this.collector.checkThat(this.page.buttonLoadingStateButton.isState("complete"), is(false));
+		this.collector.checkThat(this.page.buttonLoadingStateButton.isState("failed"), is(false));
 	}
 	
 	@Test
 	public void verifyToggle() {
+		this.collector.checkThat(this.page.buttonToggle.on(), is(false));
 		
+		this.page.buttonToggle.click();
+		this.collector.checkThat(this.page.buttonToggle.on(), is(true));
+		
+		this.page.buttonToggle.click();
+		this.collector.checkThat(this.page.buttonToggle.on(), is(false));
 	}
 }
