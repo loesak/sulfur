@@ -7,8 +7,6 @@
 * execute tests in Grid
 * build out HTML DSL for jqueryui elements
 * build in ability for application DSL for jqueryui elements
-* build in support for old Selenium
-* build in support for old Selenese
 * build in javadoc creation
 * deploy to repository (github -> maven)
 
@@ -21,8 +19,9 @@
 * build in support for old Selenium
 * build in support for old Selenese
 * build custom runner to allow for custom test setup
-	@Test
-	@Setup("setupXYZ")
-	public void verifyXYZ_ScenarioA() {
-		...
-	}
+
+    	@Test
+    	@Setup("setupXYZ")
+    	public void verifyXYZ_ScenarioA() {
+    		...
+    	}
