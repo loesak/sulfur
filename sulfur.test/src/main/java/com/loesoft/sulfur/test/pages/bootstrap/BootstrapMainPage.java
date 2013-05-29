@@ -3,7 +3,11 @@ package com.loesoft.sulfur.test.pages.bootstrap;
 import org.openqa.selenium.By;
 
 import com.loesoft.sulfur.core.webdriver.WebDriverPageObject;
+import com.loesoft.sulfur.elements.bootstrap.Alert;
+import com.loesoft.sulfur.elements.bootstrap.Breadcrumb;
 import com.loesoft.sulfur.elements.bootstrap.Button;
+import com.loesoft.sulfur.elements.bootstrap.annotation.AlertElement;
+import com.loesoft.sulfur.elements.bootstrap.annotation.BreadcrumbElement;
 import com.loesoft.sulfur.elements.bootstrap.annotation.ButtonElement;
 import com.loesoft.sulfur.elements.bootstrap.button.ButtonStateful;
 import com.loesoft.sulfur.elements.bootstrap.button.ButtonToggle;
@@ -11,12 +15,50 @@ import com.loesoft.sulfur.elements.bootstrap.button.ButtonToggle;
 public class BootstrapMainPage extends WebDriverPageObject {
 
 	// alert
+	@AlertElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=alertConnotation]")
+	public Alert alertConnotation;
+	
+	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=alertDefault]")
+	public Button alertDefault;
+	
+	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=alertError]")
+	public Button alertError;
+	
+	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=alertSuccess]")
+	public Button alertSuccess;
+	
+	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=alertInfo]")
+	public Button alertInfo;
+	
+	@AlertElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=alertDismiss]")
+	public Alert alertDismiss;
+	
+	@AlertElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=alertNoDismiss]")
+	public Alert alertNoDismiss;
+	
+	@AlertElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=alertBlock]")
+	public Alert alertBlock;
+	
+	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=alertBlockEnable]")
+	public Button alertBlockEnable;
+	
+	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=alertBlockDisable]")
+	public Button alertBlockDisable;
 	
 	// breadcrumb
 	
+	@BreadcrumbElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=breadcrumb]")
+	public Breadcrumb breadcrumb;
+	
+	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=breadcrumbAdd]")
+	public Button breadcrumbAdd;
+	
+	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=breadcrumbDelete]")
+	public Button breadcrumbDelete;
+	
 	// button
 	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=buttonBasic]")
-	public Button buttonBasic; 
+	public Button buttonBasic;
 	
 	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=buttonBasicDefault]")
 	public Button buttonBasicDefault; 

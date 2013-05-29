@@ -23,6 +23,14 @@ public abstract class Element {
 	
 	protected WebElement element;
 	
+	public Element() {
+		// intentionally left blank
+	}
+	
+	public Element(WebElement element) {
+		this.element = element;
+	}
+	
 	public Element click() {
 		this.element.click();
 		return this;

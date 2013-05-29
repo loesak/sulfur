@@ -59,10 +59,10 @@ public class FormsPage extends WebDriverPageObject {
 	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=button]")
 	public Button button;
 	
-	@SelectElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=single-select]", multiple = false)
+	@SelectElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=singleSelect]", multiple = false)
 	public Select singleSelect;
 	
-	@SelectElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=multi-select]", multiple = true)
+	@SelectElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=multiSelect]", multiple = true)
 	public Select multiSelect;
 	
 	@ButtonElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=disableButton]")

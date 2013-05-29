@@ -39,30 +39,102 @@
 		<div class="container">
 	
 			<h1>Alert</h1>
-			<div class="alert">
+			<h2>Connotation</h2>
+			<div data-sulfur-hook="alertConnotation" class="alert">
+				<strong>Default!</strong> Best check yo self, you're not looking too good.
+			</div>
+			Toggle:
+			<button data-sulfur-hook="alertDefault" type="button" class="btn">Default</button>
+			<button data-sulfur-hook="alertError" type="button" class="btn btn-danger">Error</button>
+			<button data-sulfur-hook="alertSuccess" type="button" class="btn btn-success">Success</button>
+			<button data-sulfur-hook="alertInfo" type="button" class="btn btn-info">Info</button>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					var targetAlert = $("*[data-sulfur-hook=alertConnotation]");
+					
+					var toggleButtons = ["alertDefault", "alertError", "alertSuccess", "alertInfo"];
+					
+					for (var index in toggleButtons) {
+						$("*[data-sulfur-hook=" + toggleButtons[index] + "]").click(function() {
+							if ($(this).text().toLowerCase() === "default") {
+								targetAlert.attr("class", "alert");
+							} else {
+								targetAlert.attr("class", "alert alert-" + $(this).text().toLowerCase());
+							}
+						});
+					}
+				});
+			</script>
+			
+			<h2>Dismiss</h2>
+			<div data-sulfur-hook="alertDismiss" class="alert">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
 				<strong>Default!</strong> Best check yo self, you're not looking too good.
 			</div>
-			<div class="alert alert-error">
-				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>Error!</strong> Best check yo self, you're not looking too good.
+			<div data-sulfur-hook="alertNoDismiss" class="alert">
+				<strong>Default!</strong> Best check yo self, you're not looking too good.
 			</div>
-			<div class="alert alert-success">
-				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>Success!</strong> Best check yo self, you're not looking too good.
+			
+			<h2>Block</h2>
+			<div data-sulfur-hook="alertBlock" class="alert">
+				<strong>Default!</strong> Best check yo self, you're not looking too good.
 			</div>
-			<div class="alert alert-info">
-				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>Info!</strong> Best check yo self, you're not looking too good.
-			</div>
+			Toggle:
+			<button data-sulfur-hook="alertBlockEnable" type="button" class="btn">Block</button>
+			<button data-sulfur-hook="alertBlockDisable" type="button" class="btn btn-primary">Normal</button>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					var targetAlert = $("*[data-sulfur-hook=alertBlock]");
+					
+					$("*[data-sulfur-hook=alertBlockEnable]").click(function() {
+						targetAlert.addClass("alert-block");
+					});
+					
+					$("*[data-sulfur-hook=alertBlockDisable]").click(function() {
+						targetAlert.removeClass("alert-block");
+					});
+				});
+			</script>
 			<hr/>
 
 			<h1>Breadcrumb</h1>
-			<ul class="breadcrumb">
-				<li><a href="#">Home</a> <span class="divider">/</span></li>
-				<li><a href="#">Library</a> <span class="divider">/</span></li>
-				<li class="active">Data</li>
+			<ul class="breadcrumb" data-sulfur-hook="breadcrumb">
+				<li class="active">Home</li>
 			</ul>
+			Toggle:
+			<button data-sulfur-hook="breadcrumbAdd" type="button" class="btn">Add Crumb</button>
+			<button data-sulfur-hook="breadcrumbDelete" type="button" class="btn">Delete Crumb</button>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					var breadcrumb = $("*[data-sulfur-hook=breadcrumb]");
+					
+					$("*[data-sulfur-hook=breadcrumbAdd]").click(function() {
+						if (breadcrumb.children().length < 10) {
+							breadcrumb.children().last().removeClass("active"); // remove active class
+							
+							var parentCrumb = $("<a></a>").attr("href", "#").text(breadcrumb.children().last().text());
+							breadcrumb.children().last().text("");
+							breadcrumb.children().last().append(parentCrumb);
+							breadcrumb.children().last().append().append($("<span></span>").addClass("divider").html("/"));
+	
+							breadcrumb.append($("<li></li>").addClass("active").text("crumb " + breadcrumb.children().length));
+						}
+					});
+					
+					$("*[data-sulfur-hook=breadcrumbDelete]").click(function() {
+						if (breadcrumb.children().length > 1) {
+							breadcrumb.children().last().remove();
+	
+							var text = breadcrumb.children().last().find("a").text();
+							breadcrumb.children().last().find("span.divider").remove();
+							breadcrumb.children().last().find("a").remove();
+							breadcrumb.children().last().text(text);
+							
+							breadcrumb.children().last().addClass("active");
+						}
+					});
+				});
+			</script>
 			<hr/>
 			
 			<h1>Button</h1>
