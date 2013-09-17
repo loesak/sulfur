@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bootstrap, from Twitter</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		
+		<!-- Le styles -->
+		<link href="/sulfur.test/css/bootstrap.css" rel="stylesheet">
+		<style>
+		body {
+			padding-top: 60px;
+			/* 60px to make the container go all the way to the bottom of the topbar */
+		}
+		</style>
+		<link href="/sulfur.test/css/bootstrap-responsive.css" rel="stylesheet">
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		      <script src="/sulfur.test/js/html5shiv.js"></script>
+		    <![endif]-->
+		
+		<!-- Fav and touch icons -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/sulfur.test/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/sulfur.test/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/sulfur.test/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="/sulfur.test/ico/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="/sulfur.test/ico/favicon.png">
+		
+		<script src="/sulfur.test/js/lib/jquery/jquery-2.0.0.min.js"></script>
+		<script src="/sulfur.test/js/lib/bootstrap/bootstrap.min.js"></script>
+	</head>
+
+	<body>
+	
+		<div class="container">
+	
+			<h1>Button</h1>
+			<h2>Basic</h2>
+			<button data-sulfur-hook="buttonBasic" type="button" class="btn btn-large">Basic</button>
+			
+			Toggle:
+			<button data-sulfur-hook="buttonBasicDefault" type="button" class="btn">Default</button>
+			<button data-sulfur-hook="buttonBasicPrimary" type="button" class="btn btn-primary">Primary</button>
+			<button data-sulfur-hook="buttonBasicInfo" type="button" class="btn btn-info">Info</button>
+			<button data-sulfur-hook="buttonBasicSuccess" type="button" class="btn btn-success">Success</button>
+			<button data-sulfur-hook="buttonBasicWarning" type="button" class="btn btn-warning">Warning</button>
+			<button data-sulfur-hook="buttonBasicDanger" type="button" class="btn btn-danger">Danger</button>
+			<button data-sulfur-hook="buttonBasicInverse" type="button" class="btn btn-inverse">Inverse</button>
+			<button data-sulfur-hook="buttonBasicLink" type="button" class="btn btn-link">Link</button>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					var targetButton = $("*[data-sulfur-hook=buttonBasic]");
+					
+					var toggleButtons = [
+					 "buttonBasicDefault", "buttonBasicPrimary", "buttonBasicInfo", "buttonBasicSuccess",
+					 "buttonBasicWarning", "buttonBasicDanger", "buttonBasicInverse", "buttonBasicLink"
+					];
+					
+					for (var index in toggleButtons) {
+						$("*[data-sulfur-hook=" + toggleButtons[index] + "]").click(function() {
+							if ($(this).text().toLowerCase() === "default") {
+								targetButton.attr("class", "btn btn-large");
+							} else {
+								targetButton.attr("class", "btn btn-large btn-" + $(this).text().toLowerCase());
+							}
+						});
+					}
+				});
+			</script>
+			
+			<h2>Sizes</h2>
+			<button data-sulfur-hook="buttonSize" type="button" class="btn">Default</button>
+			Toggle: 
+			<button data-sulfur-hook="buttonSizeLarge" type="button" class="btn btn-large">Large</button>
+			<button data-sulfur-hook="buttonSizeDefault" type="button" class="btn">Default</button>
+			<button data-sulfur-hook="buttonSizeSmall" type="button" class="btn btn-small">Small</button>
+			<button data-sulfur-hook="buttonSizeMini" type="button" class="btn btn-mini">Mini</button>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					var targetButton = $("*[data-sulfur-hook=buttonSize]");
+					
+					var toggleButtons = ["buttonSizeLarge", "buttonSizeDefault", "buttonSizeSmall", "buttonSizeMini"];
+					
+					for (var index in toggleButtons) {
+						$("*[data-sulfur-hook=" + toggleButtons[index] + "]").click(function() {
+							if ($(this).text().toLowerCase() === "default") {
+								targetButton.attr("class", "btn");
+							} else {
+								targetButton.attr("class", "btn btn-" + $(this).text().toLowerCase());
+							}
+						});
+					}
+				});
+			</script>
+			
+			<h2>Disabled State</h2>
+			<button data-sulfur-hook="buttonDisabledButton" type="button" class="btn">As a button</button>
+			<a data-sulfur-hook="buttonDisabledAnchor" href="javascript:void(0);" class="btn">As an anchor</a>
+			<input data-sulfur-hook="buttonDisabledInput" type="button" class="btn" value="As an input"></input>
+			Toggle:
+			<button data-sulfur-hook="buttonDisableButtonDisable" type="button" class="btn">Disable</button>
+			<button data-sulfur-hook="buttonDisableButtonEnable" type="button" class="btn">Enable</button>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					var targetButtons = [
+							$("*[data-sulfur-hook=buttonDisabledButton]"), 
+							$("*[data-sulfur-hook=buttonDisabledAnchor]"), 
+							$("*[data-sulfur-hook=buttonDisabledInput]")
+						];
+					
+					$("*[data-sulfur-hook=buttonDisableButtonDisable]").click(function() {
+						targetButtons[0].prop("disabled", true);
+						targetButtons[1].addClass("disabled");
+						targetButtons[2].prop("disabled", true);
+					});
+					
+					$("*[data-sulfur-hook=buttonDisableButtonEnable]").click(function() {
+						targetButtons[0].prop("disabled", false);
+						targetButtons[1].removeClass("disabled");
+						targetButtons[2].prop("disabled", false);
+					});
+				});
+			</script>
+			
+			<h2>Loading State</h2>
+			<button data-sulfur-hook="buttonLoadingStateButton" type="button" class="btn btn-primary" data-loading-text="Loading..." data-complete-text="Complete!" data-failed-text="Failed!">Click</button>
+			<button data-sulfur-hook="buttonLoadingStateButtonReset" type="button" class="btn ">Reset</button>
+			<button data-sulfur-hook="buttonLoadingStateButtonComplete" type="button" class="btn ">Complete</button>
+			<button data-sulfur-hook="buttonLoadingStateButtonFailed" type="button" class="btn ">Failed</button>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$("*[data-sulfur-hook=buttonLoadingStateButton]").click(function() {
+						$(this).button("loading");
+					});
+					
+					$("*[data-sulfur-hook=buttonLoadingStateButtonComplete]").click(function() {
+						$("*[data-sulfur-hook=buttonLoadingStateButton]").button("complete");
+					});
+					
+					$("*[data-sulfur-hook=buttonLoadingStateButtonFailed]").click(function() {
+						$("*[data-sulfur-hook=buttonLoadingStateButton]").button("failed");
+					});
+					
+					$("*[data-sulfur-hook=buttonLoadingStateButtonReset]").click(function() {
+						$("*[data-sulfur-hook=buttonLoadingStateButton]").button("reset");
+					});
+				});
+			</script>
+			
+			<h2>Toggle</h2>
+			<button data-sulfur-hook="buttonToggle" type="button" class="btn btn-primary" data-toggle="button">Single Toggle</button>
+			<hr/>
+
+		</div>
+	
+	</body>
+</html>

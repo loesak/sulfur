@@ -9,7 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.iphone.IPhoneDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
+//import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -51,8 +51,8 @@ public class WebDriverFactory {
 				driver = new AndroidDriver(new URL(WebDriverBrowserProperties.getWebDriverRemoteUrl()), WebDriverFactory.getDriverDesiredCapabilities(driverClassName));
 			} else if (driverClassName.equals(RemoteWebDriver.class.getName())) {
 				driver = new RemoteWebDriver(new URL(WebDriverBrowserProperties.getWebDriverRemoteUrl()), WebDriverFactory.getDriverDesiredCapabilities(driverClassName));
-			} else if (driverClassName.equals(PhantomJSDriver.class.getName())) {
-				driver = new PhantomJSDriver(WebDriverFactory.getDriverDesiredCapabilities(driverClassName));
+//			} else if (driverClassName.equals(PhantomJSDriver.class.getName())) {
+//				driver = new PhantomJSDriver(WebDriverFactory.getDriverDesiredCapabilities(driverClassName));
 			} else {
 				throw new IllegalArgumentException("Unsupported WebDriver class name '" + driverClassName + "'");
 			}
@@ -79,8 +79,8 @@ public class WebDriverFactory {
 			desiredCapabilities = DesiredCapabilities.android();
 		} else if (driverClassName.equals(HtmlUnitDriver.class.getName())) {
 			desiredCapabilities = DesiredCapabilities.htmlUnit();
-		} else if (driverClassName.equals(PhantomJSDriver.class.getName())) {
-			desiredCapabilities = DesiredCapabilities.phantomjs();
+//		} else if (driverClassName.equals(PhantomJSDriver.class.getName())) {
+//			desiredCapabilities = DesiredCapabilities.phantomjs();
 		} else {
 			desiredCapabilities = new DesiredCapabilities();
 		}

@@ -1,11 +1,12 @@
 package com.loesoft.sulfur.elements.bootstrap.buttonGroup;
 
-import java.lang.annotation.Annotation;
+import org.openqa.selenium.By;
 
-import org.openqa.selenium.WebDriver;
+import com.loesoft.sulfur.elements.bootstrap.dropdown.Dropdown;
 
-import com.loesoft.sulfur.elements.bootstrap.Button;
-
-public class ButtonDropdown extends Button {
-
+public class ButtonDropdown extends ButtonGroup {
+	public Dropdown dropdown() {
+		this.element.findElement(By.cssSelector(".dropdown-toggle")).click();
+		return new Dropdown(this.element.findElement(By.cssSelector(".dropdown-menu")));
+	}
 }

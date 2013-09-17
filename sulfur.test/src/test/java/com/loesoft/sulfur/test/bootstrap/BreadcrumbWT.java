@@ -1,8 +1,8 @@
 package com.loesoft.sulfur.test.bootstrap;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -11,17 +11,17 @@ import org.junit.rules.ErrorCollector;
 
 import com.loesoft.sulfur.core.webdriver.WebDriverBaseTest;
 import com.loesoft.sulfur.test.pages.TestMainPage;
-import com.loesoft.sulfur.test.pages.bootstrap.BootstrapMainPage;
+import com.loesoft.sulfur.test.pages.bootstrap.BreadcrumbPage;
 
 public class BreadcrumbWT extends WebDriverBaseTest {
 	@Rule
 	public ErrorCollector collector = new ErrorCollector();
 	
-	private BootstrapMainPage page;
+	private BreadcrumbPage page;
 	
 	@Before
 	public void setup() {
-		page = TestMainPage.go().clickOnBootstrapLink();
+		page = TestMainPage.go().clickOnBootstrapLink().clickOnBreadcrumbLink();
 	}
 	
 	@Test

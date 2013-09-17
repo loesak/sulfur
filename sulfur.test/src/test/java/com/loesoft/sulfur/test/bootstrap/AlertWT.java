@@ -13,17 +13,17 @@ import org.openqa.selenium.StaleElementReferenceException;
 import com.loesoft.sulfur.core.webdriver.WebDriverBaseTest;
 import com.loesoft.sulfur.elements.bootstrap.Alert;
 import com.loesoft.sulfur.test.pages.TestMainPage;
-import com.loesoft.sulfur.test.pages.bootstrap.BootstrapMainPage;
+import com.loesoft.sulfur.test.pages.bootstrap.AlertPage;
 
 public class AlertWT extends WebDriverBaseTest {
 	@Rule
 	public ErrorCollector collector = new ErrorCollector();
 	
-	private BootstrapMainPage page;
+	private AlertPage page;
 	
 	@Before
 	public void setup() {
-		page = TestMainPage.go().clickOnBootstrapLink();
+		page = TestMainPage.go().clickOnBootstrapLink().clickOnAlertLink();
 	}
 	
 	@Test

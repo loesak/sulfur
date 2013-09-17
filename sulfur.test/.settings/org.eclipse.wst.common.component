@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-modules id="moduleCoreId" project-version="1.5.0">
 	<wb-module deploy-name="sulfur.test">
+        <dependent-module archiveName="sulfur.core-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/sulfur.core/sulfur.core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="sulfur.elements.bootstrap-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/sulfur.elements.bootstrap/sulfur.elements.bootstrap">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="sulfur.elements.jqueryui-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/sulfur.elements.jqueryui/sulfur.elements.jqueryui">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
 		<property name="context-root" value="sulfur.test"/>
 		<wb-resource deploy-path="/" source-path="src/main/webapp"/>
 		<property name="java-output-path" value="/target/classes"/>

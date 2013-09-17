@@ -8,19 +8,19 @@ import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 
 import com.loesoft.sulfur.core.webdriver.WebDriverBaseTest;
-import com.loesoft.sulfur.elements.bootstrap.Button;
+import com.loesoft.sulfur.elements.bootstrap.button.Button;
 import com.loesoft.sulfur.test.pages.TestMainPage;
-import com.loesoft.sulfur.test.pages.bootstrap.BootstrapMainPage;
+import com.loesoft.sulfur.test.pages.bootstrap.ButtonPage;
 
 public class ButtonWT extends WebDriverBaseTest {
 	@Rule
 	public ErrorCollector collector = new ErrorCollector();
 	
-	private BootstrapMainPage page;
+	private ButtonPage page;
 	
 	@Before
 	public void setup() {
-		page = TestMainPage.go().clickOnBootstrapLink();
+		page = TestMainPage.go().clickOnBootstrapLink().clickOnButtonLink();
 	}
 	
 	@Test

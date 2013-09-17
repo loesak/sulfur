@@ -3,22 +3,20 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>core</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>sulfur.core</artifactId>
 	<packaging>jar</packaging>
 
 	<parent>
-		<groupId>com.loesoft.sulfur</groupId>
-		<artifactId>parent</artifactId>
+		<groupId>com.loesoft</groupId>
+		<artifactId>sulfur</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../parent.xml</relativePath>
 	</parent>
 	
 	<name>Sulfur Core</name>
 
 	<properties>
 		<junit.version>4.10</junit.version>
-		<selenium.version>2.30.0</selenium.version>
+		<selenium.version>2.34.0</selenium.version>
 		<apache.commons.lang.version>3.1</apache.commons.lang.version>
 		<apache.commons.math.version>3.0</apache.commons.math.version>
 		<joda.time.version>2.1</joda.time.version>
@@ -56,49 +54,11 @@
 			<artifactId>joda-time</artifactId>
 			<version>${joda.time.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.github.detro.ghostdriver</groupId>
-			<artifactId>phantomjsdriver</artifactId>
-			<version>${phantomjs.driver.version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.github.detro.ghostdriver</groupId> -->
+<!-- 			<artifactId>phantomjsdriver</artifactId> -->
+<!-- 			<version>${phantomjs.driver.version}</version> -->
+<!-- 		</dependency> -->
 	</dependencies>
 
-	<build>
-		<plugins>
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.codehaus.cargo</groupId> -->
-<!-- 				<artifactId>cargo-maven2-plugin</artifactId> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<id>cargo-start</id> -->
-<!-- 						<phase>pre-integration-test</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>start</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 					<execution> -->
-<!-- 						<id>cargo-stop</id> -->
-<!-- 						<phase>post-integration-test</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>stop</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 				<configuration> -->
-<!-- 					<container> -->
-<!-- 						<containerId>tomcat7x</containerId> -->
-<!-- 						<type>standalone</type> -->
-<!-- 					</container> -->
-<!-- 					<configuration> -->
-<!-- 					</configuration> -->
-<!-- 					<deployables> -->
-<!-- 						<deployable> -->
-<!-- 							<location>${basedir}/test/resources/test.html</location> -->
-<!-- 							<type>file</type> -->
-<!-- 						</deployable> -->
-<!-- 					</deployables> -->
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
-		</plugins>
-	</build>
 </project>

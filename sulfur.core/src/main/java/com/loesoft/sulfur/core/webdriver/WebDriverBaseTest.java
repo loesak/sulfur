@@ -4,6 +4,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 
+import com.loesoft.sulfur.core.elements.Element;
+
 /**
  * Base test class for WebDriver based tests
  * 
@@ -27,6 +29,9 @@ public class WebDriverBaseTest {
 
 		// set the WebDriver on PageObject class for page object use
 		WebDriverPageObject.setWebDriver(WebDriverBaseTest.driver);
+		
+		// set the WebDriver on Element class for element object use
+		Element.setWebDriver(WebDriverBaseTest.driver);
 	}
 
 	/**

@@ -1,8 +1,7 @@
 package com.loesoft.sulfur.core.elements;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import com.loesoft.sulfur.core.elements.forms.Option;
 
 public abstract class Element {
 	public static final String ATTRIBUTE_ACCESSKEY = "accesskey";
@@ -20,6 +19,12 @@ public abstract class Element {
 	public static final String ATTRIBUTE_TABINDEX = "tabindex";
 	public static final String ATTRIBUTE_TITLE = "title";
 	public static final String ATTRIBUTE_TRANSLATE = "translate";
+	
+	protected static WebDriver driver;
+	
+	public static void setWebDriver(WebDriver driver) {
+		Element.driver = driver;
+	}
 	
 	protected WebElement element;
 	

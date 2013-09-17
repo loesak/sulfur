@@ -1,10 +1,11 @@
-package com.loesoft.sulfur.elements.bootstrap;
+package com.loesoft.sulfur.elements.bootstrap.button;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.loesoft.sulfur.core.elements.Element;
 import com.loesoft.sulfur.core.elements.annotation.AnnotatableElement;
@@ -29,6 +30,14 @@ public class Button extends Element implements AnnotatableElement {
 	public static final String BOOTSTRAP_BUTTON_BLOCK = "block";
 	
 	public static final String BOOTSTRAP_BUTTON_DISABLED = "disabled";
+	
+	public Button() {
+		super();
+	}
+	
+	public Button(WebElement element) {
+		super(element);
+	}
 	
 	@Override
 	public void initialize(WebDriver driver, Annotation annotation) throws Exception {
