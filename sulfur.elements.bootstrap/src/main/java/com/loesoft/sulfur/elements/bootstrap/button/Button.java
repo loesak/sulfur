@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import com.loesoft.sulfur.core.elements.Element;
 import com.loesoft.sulfur.core.elements.annotation.AnnotatableElement;
-import com.loesoft.sulfur.elements.bootstrap.annotation.ButtonElement;
+import com.loesoft.sulfur.elements.bootstrap.button.annotation.ButtonElement;
 
 public class Button extends Element implements AnnotatableElement {
 	

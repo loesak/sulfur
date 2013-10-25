@@ -3,10 +3,10 @@ package com.loesoft.sulfur.test.pages.bootstrap;
 import org.openqa.selenium.By;
 
 import com.loesoft.sulfur.core.webdriver.WebDriverPageObject;
-import com.loesoft.sulfur.elements.bootstrap.Alert;
-import com.loesoft.sulfur.elements.bootstrap.annotation.AlertElement;
-import com.loesoft.sulfur.elements.bootstrap.annotation.ButtonElement;
+import com.loesoft.sulfur.elements.bootstrap.alert.Alert;
+import com.loesoft.sulfur.elements.bootstrap.alert.annotation.AlertElement;
 import com.loesoft.sulfur.elements.bootstrap.button.Button;
+import com.loesoft.sulfur.elements.bootstrap.button.annotation.ButtonElement;
 
 public class AlertPage extends WebDriverPageObject {
 

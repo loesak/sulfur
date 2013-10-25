@@ -37,11 +37,16 @@ public class WebDriverPageObject {
 			for (Field field : this.getClass().getDeclaredFields()) {
 				for (Annotation annotation : field.getAnnotations()) {
 					if (annotation.annotationType().isAnnotationPresent(ElementAnnotation.class)) {
-						@SuppressWarnings("unchecked")
-						Class<? extends Element> fieldTypeClass = (Class<? extends Element>) field.getType();
-						AnnotatableElement instance = (AnnotatableElement) fieldTypeClass.newInstance();
-						instance.initialize(driver, annotation);
-						field.set(this, instance);
+						
+						try {
+							@SuppressWarnings("unchecked")
+							Class<? extends Element> fieldTypeClass = (Class<? extends Element>) field.getType();
+							AnnotatableElement instance = (AnnotatableElement) fieldTypeClass.newInstance();
+							instance.initialize(driver, annotation);
+							field.set(this, instance);
+						} catch (Exception e) {
+							throw new IllegalStateException("Failed to initialize element '" + field.getName() + "' of type '" + field.getType().getName() + "'", e);
+						}
 					}
 				}
 			}

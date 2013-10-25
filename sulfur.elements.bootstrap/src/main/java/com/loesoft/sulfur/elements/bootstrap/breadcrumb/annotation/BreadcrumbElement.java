@@ -1,4 +1,4 @@
-package com.loesoft.sulfur.elements.bootstrap.annotation;
+package com.loesoft.sulfur.elements.bootstrap.breadcrumb.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,7 +13,7 @@ import com.loesoft.sulfur.core.elements.links.Anchor;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 @ElementAnnotation(Anchor.class)
-public @interface CarouselElement {
+public @interface BreadcrumbElement {
 	public Class<? extends By> by();
 	public String using();
 }

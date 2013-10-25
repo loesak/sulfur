@@ -20,7 +20,7 @@ public class ButtonWT extends WebDriverBaseTest {
 	
 	@Before
 	public void setup() {
-		page = TestMainPage.go().clickOnBootstrapLink().clickOnButtonLink();
+		this.page = TestMainPage.go().clickOnBootstrapLink().clickOnButtonLink();
 	}
 	
 	@Test

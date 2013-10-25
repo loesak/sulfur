@@ -21,7 +21,7 @@ public class ButtonGroupWT extends WebDriverBaseTest {
 	
 	@Before
 	public void setup() {
-		page = TestMainPage.go().clickOnBootstrapLink().clickOnButtonGroupLink();
+		this.page = TestMainPage.go().clickOnBootstrapLink().clickOnButtonGroupLink();
 	}
 	
 	@Test

@@ -1,4 +1,4 @@
-package com.loesoft.sulfur.elements.bootstrap;
+package com.loesoft.sulfur.elements.bootstrap.alert;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import com.loesoft.sulfur.core.elements.Element;
 import com.loesoft.sulfur.core.elements.annotation.AnnotatableElement;
-import com.loesoft.sulfur.elements.bootstrap.annotation.AlertElement;
+import com.loesoft.sulfur.elements.bootstrap.alert.annotation.AlertElement;
 
 public class Alert extends Element implements AnnotatableElement {
 

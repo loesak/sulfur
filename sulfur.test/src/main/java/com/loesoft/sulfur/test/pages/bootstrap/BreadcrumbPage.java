@@ -3,10 +3,10 @@ package com.loesoft.sulfur.test.pages.bootstrap;
 import org.openqa.selenium.By;
 
 import com.loesoft.sulfur.core.webdriver.WebDriverPageObject;
-import com.loesoft.sulfur.elements.bootstrap.Breadcrumb;
-import com.loesoft.sulfur.elements.bootstrap.annotation.BreadcrumbElement;
-import com.loesoft.sulfur.elements.bootstrap.annotation.ButtonElement;
+import com.loesoft.sulfur.elements.bootstrap.breadcrumb.Breadcrumb;
+import com.loesoft.sulfur.elements.bootstrap.breadcrumb.annotation.BreadcrumbElement;
 import com.loesoft.sulfur.elements.bootstrap.button.Button;
+import com.loesoft.sulfur.elements.bootstrap.button.annotation.ButtonElement;
 
 public class BreadcrumbPage extends WebDriverPageObject {
 

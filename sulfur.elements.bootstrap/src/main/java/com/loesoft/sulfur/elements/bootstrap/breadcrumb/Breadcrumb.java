@@ -1,4 +1,4 @@
-package com.loesoft.sulfur.elements.bootstrap;
+package com.loesoft.sulfur.elements.bootstrap.breadcrumb;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 import com.loesoft.sulfur.core.elements.Element;
 import com.loesoft.sulfur.core.elements.annotation.AnnotatableElement;
 import com.loesoft.sulfur.core.elements.basic.Basic;
-import com.loesoft.sulfur.elements.bootstrap.annotation.BreadcrumbElement;
+import com.loesoft.sulfur.elements.bootstrap.breadcrumb.annotation.BreadcrumbElement;
 
 public class Breadcrumb extends Element implements AnnotatableElement {
 

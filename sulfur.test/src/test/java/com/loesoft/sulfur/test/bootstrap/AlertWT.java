@@ -11,7 +11,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 
 import com.loesoft.sulfur.core.webdriver.WebDriverBaseTest;
-import com.loesoft.sulfur.elements.bootstrap.Alert;
+import com.loesoft.sulfur.elements.bootstrap.alert.Alert;
 import com.loesoft.sulfur.test.pages.TestMainPage;
 import com.loesoft.sulfur.test.pages.bootstrap.AlertPage;
 
@@ -23,7 +23,7 @@ public class AlertWT extends WebDriverBaseTest {
 	
 	@Before
 	public void setup() {
-		page = TestMainPage.go().clickOnBootstrapLink().clickOnAlertLink();
+		this.page = TestMainPage.go().clickOnBootstrapLink().clickOnAlertLink();
 	}
 	
 	@Test

@@ -21,7 +21,7 @@ public class BreadcrumbWT extends WebDriverBaseTest {
 	
 	@Before
 	public void setup() {
-		page = TestMainPage.go().clickOnBootstrapLink().clickOnBreadcrumbLink();
+		this.page = TestMainPage.go().clickOnBootstrapLink().clickOnBreadcrumbLink();
 	}
 	
 	@Test

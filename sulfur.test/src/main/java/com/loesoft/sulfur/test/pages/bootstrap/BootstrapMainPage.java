@@ -20,6 +20,9 @@ public class BootstrapMainPage extends WebDriverPageObject {
 	@AnchorElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=buttonGroup]")
 	public Anchor buttonGroupLink;
 	
+	@AnchorElement(by = By.ByCssSelector.class, using = "*[data-sulfur-hook=carousel]")
+	public Anchor carouselLink;
+	
 	public AlertPage clickOnAlertLink() {
 		this.alertLink.click();
 		return WebDriverPageObject.get(AlertPage.class);
@@ -38,5 +41,10 @@ public class BootstrapMainPage extends WebDriverPageObject {
 	public ButtonGroupPage clickOnButtonGroupLink() {
 		this.buttonGroupLink.click();
 		return WebDriverPageObject.get(ButtonGroupPage.class);
+	}
+	
+	public CarouselPage clickOnCarouselLink() {
+		this.carouselLink.click();
+		return WebDriverPageObject.get(CarouselPage.class);
 	}
 }

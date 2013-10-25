@@ -1,4 +1,4 @@
-package com.loesoft.sulfur.elements.bootstrap.annotation;
+package com.loesoft.sulfur.elements.bootstrap.alert.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -15,12 +15,12 @@
 	<name>Sulfur Core</name>
 
 	<properties>
-		<junit.version>4.10</junit.version>
-		<selenium.version>2.34.0</selenium.version>
+		<junit.version>4.11</junit.version>
+		<selenium.version>2.35.0</selenium.version>
 		<apache.commons.lang.version>3.1</apache.commons.lang.version>
 		<apache.commons.math.version>3.0</apache.commons.math.version>
-		<joda.time.version>2.1</joda.time.version>
-		<phantomjs.driver.version>1.0.3-dev</phantomjs.driver.version>
+		<joda.time.version>2.3</joda.time.version>
+		<phantomjs.driver.version>1.0.4</phantomjs.driver.version>
 	</properties>
 
 	<dependencies>

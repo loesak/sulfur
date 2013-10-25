@@ -3,11 +3,11 @@ package com.loesoft.sulfur.test.pages.bootstrap;
 import org.openqa.selenium.By;
 
 import com.loesoft.sulfur.core.webdriver.WebDriverPageObject;
-import com.loesoft.sulfur.elements.bootstrap.annotation.ButtonGroupElement;
 import com.loesoft.sulfur.elements.bootstrap.buttonGroup.ButtonDropdown;
 import com.loesoft.sulfur.elements.bootstrap.buttonGroup.ButtonGroup;
 import com.loesoft.sulfur.elements.bootstrap.buttonGroup.CheckboxButtonGroup;
 import com.loesoft.sulfur.elements.bootstrap.buttonGroup.RadioButtonGroup;
+import com.loesoft.sulfur.elements.bootstrap.buttonGroup.annotation.ButtonGroupElement;
 
 public class ButtonGroupPage extends WebDriverPageObject {
 

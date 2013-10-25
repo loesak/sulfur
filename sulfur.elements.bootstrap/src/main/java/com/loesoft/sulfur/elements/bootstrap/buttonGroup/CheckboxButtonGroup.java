@@ -11,9 +11,9 @@ import org.openqa.selenium.WebElement;
 
 import com.loesoft.sulfur.core.elements.Element;
 import com.loesoft.sulfur.core.elements.annotation.AnnotatableElement;
-import com.loesoft.sulfur.elements.bootstrap.annotation.ButtonGroupElement;
 import com.loesoft.sulfur.elements.bootstrap.button.Button;
 import com.loesoft.sulfur.elements.bootstrap.button.ButtonToggle;
+import com.loesoft.sulfur.elements.bootstrap.buttonGroup.annotation.ButtonGroupElement;
 
 public class CheckboxButtonGroup extends Element implements AnnotatableElement {
 	@Override
