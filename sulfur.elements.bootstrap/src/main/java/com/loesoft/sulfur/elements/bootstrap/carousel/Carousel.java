@@ -26,14 +26,6 @@ import com.loesoft.sulfur.elements.bootstrap.carousel.annotation.CarouselElement
  */
 public class Carousel extends Element implements AnnotatableElement {
 	
-	public Carousel() {
-		super();
-	}
-	
-	public Carousel(WebElement element) {
-		super(element);
-	}
-	
 	@Override
 	public void initialize(WebDriver driver, Annotation annotation) throws Exception {
 		CarouselElement carouselElement = (CarouselElement) annotation;
@@ -48,17 +40,14 @@ public class Carousel extends Element implements AnnotatableElement {
 	public void previous() {
 		final Integer previous = (((this.index() - 1) % this.indicators().size()) + this.indicators().size()) % this.indicators().size();
 
-		System.out.println("current = " + this.index());
-		System.out.println("previous = " + previous);
-		
 		this.element.findElement(By.cssSelector("*[data-slide=prev]")).click();
 		
 		// wait for shift
 		new WebDriverWait(driver, WebDriverExecutionProperties.getPageLoadTimeout()).until(new ExpectedCondition<Boolean>() {
 			@Override
 			public Boolean apply(WebDriver arg0) {
-				System.out.println(Carousel.this.indicators().get(previous).attribute("class"));
-				return Carousel.this.indicators().get(previous).attribute("class").contains("active");
+				System.out.println(Carousel.this.indicators().get(previous).attribute(ATTRIBUTE_CLASS));
+				return Carousel.this.indicators().get(previous).attribute(ATTRIBUTE_CLASS).contains("active");
 			}
 		});
 	}
@@ -72,7 +61,7 @@ public class Carousel extends Element implements AnnotatableElement {
 		new WebDriverWait(driver, WebDriverExecutionProperties.getPageLoadTimeout()).until(new ExpectedCondition<Boolean>() {
 			@Override
 			public Boolean apply(WebDriver arg0) {
-				return Carousel.this.indicators().get(next).attribute("class").contains("active");
+				return Carousel.this.indicators().get(next).attribute(ATTRIBUTE_CLASS).contains("active");
 			}
 		});
 	}
@@ -99,7 +88,7 @@ public class Carousel extends Element implements AnnotatableElement {
 		new WebDriverWait(driver, WebDriverExecutionProperties.getPageLoadTimeout()).until(new ExpectedCondition<Boolean>() {
 			@Override
 			public Boolean apply(WebDriver arg0) {
-				return indicator.attribute("class").contains("active");
+				return indicator.attribute(ATTRIBUTE_CLASS).contains("active");
 			}
 		});
 		
