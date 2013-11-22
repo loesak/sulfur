@@ -53,6 +53,10 @@ public abstract class Element {
 		return this.element.getAttribute(name);
 	}
 	
+	public String css(String styleName) {
+		return this.element.getCssValue(styleName);
+	}
+	
 	@Override
 	public boolean equals(Object other) {
 		if (other == null) {

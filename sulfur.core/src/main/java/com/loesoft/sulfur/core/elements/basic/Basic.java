@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import com.loesoft.sulfur.core.elements.Element;
 import com.loesoft.sulfur.core.elements.annotation.AnnotatableElement;
 
+// FIXME I do not like the name of this class
 public class Basic extends Element implements AnnotatableElement {
 
 	public Basic(WebElement element) {
