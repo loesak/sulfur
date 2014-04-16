@@ -4,6 +4,10 @@ Sulfur, it's above Selenium. Literally!
 
 [![Build Status](https://travis-ci.org/loesak/sulfur.png?branch=master)](https://travis-ci.org/loesak/sulfur)
 
+## Notice
+
+This project framework is in a stable place. I'm currently looking for help implementing elements for UI frameworks (e.g. Bootstrap 3, jquery, Sencha, whatever, etc.). If you're interested, please email aaron.loes@gmail.com.
+
 ## What is it?
 
 Sulfur was created to test highly dynamic web applications while at the same time bring better organization and clarity to your web testing. 
