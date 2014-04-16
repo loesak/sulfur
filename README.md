@@ -28,6 +28,8 @@ The build expects you to have FireFox installed. If you do not, then you can swi
 
 ## Updates
 
+> 4/15/2014 - Updated to the latest version of selenium, enhanced page object loaded logic, and some minor project structure changes.
+
 > 5/27/13 - Delivered the initial code for bootstrap testing (basic buttons only implemented). Looking to keep working on this for the rest of the week.
 
 > 5/24/13 - Correction, the basic testing framework is ready, no work is done for the grid.
