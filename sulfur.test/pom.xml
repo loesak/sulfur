@@ -7,8 +7,9 @@
 
 	<parent>
 		<groupId>com.loesoft.sulfur</groupId>
-		<artifactId>sulfur.parent</artifactId>
+		<artifactId>sulfur</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<artifactId>sulfur.test</artifactId>
