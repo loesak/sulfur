@@ -6,7 +6,7 @@ Sulfur, it's above Selenium. Literally!
 
 ## Notice
 
-This project framework is in a stable place. I'm currently looking for help implementing elements for UI frameworks (e.g. Bootstrap 3, jquery, Sencha, whatever, etc.). If you're interested, please email aaron.loes@gmail.com.
+This project framework is in a stable place. I'm currently looking for help implementing elements for UI frameworks (e.g. Bootstrap 3, jquery, Sencha, whatever, etc.). If you're interested, please email "aaron.loes AT gmail DOT com".
 
 ## What is it?
 
