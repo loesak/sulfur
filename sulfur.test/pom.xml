@@ -3,22 +3,16 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>sulfur.test</artifactId>
-	<packaging>war</packaging>
-
 	<name>Sulfur Test</name>
 
 	<parent>
-		<groupId>com.loesoft</groupId>
-		<artifactId>sulfur</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<groupId>com.loesoft.sulfur</groupId>
+		<artifactId>sulfur.parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<properties>
-		<sulfur.core.version>0.0.1-SNAPSHOT</sulfur.core.version>
-		<sulfur.elements.bootstrap.version>0.0.1-SNAPSHOT</sulfur.elements.bootstrap.version>
-		<sulfur.elements.jqueryui.version>0.0.1-SNAPSHOT</sulfur.elements.jqueryui.version>
-	</properties>
+	<artifactId>sulfur.test</artifactId>
+	<packaging>war</packaging>
 
 	<profiles>
 		<profile>
@@ -49,19 +43,19 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.loesoft</groupId>
+			<groupId>com.loesoft.sulfur</groupId>
 			<artifactId>sulfur.core</artifactId>
-			<version>${sulfur.core.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.loesoft</groupId>
+			<groupId>com.loesoft.sulfur</groupId>
 			<artifactId>sulfur.elements.bootstrap</artifactId>
-			<version>${sulfur.elements.bootstrap.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.loesoft</groupId>
+			<groupId>com.loesoft.sulfur</groupId>
 			<artifactId>sulfur.elements.jqueryui</artifactId>
-			<version>${sulfur.elements.jqueryui.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 

@@ -3,28 +3,21 @@
 	
 	<modelVersion>4.0.0</modelVersion>
 	
-	<artifactId>elements.jqueryui</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	
 	<parent>
 		<groupId>com.loesoft.sulfur</groupId>
-		<artifactId>parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../parent.xml</relativePath>
+		<artifactId>sulfur.parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	
-	<name>Sulfur Elements jQueryUI</name>
+	<artifactId>sulfur.elements.jqueryui</artifactId>
 	
-	<properties>
-		<sulfur.core.version>0.0.1-SNAPSHOT</sulfur.core.version>
-	</properties>
+	<name>Sulfur Elements jQueryUI</name>
 	
 	<dependencies>
 		<dependency>
 			<groupId>com.loesoft.sulfur</groupId>
-			<artifactId>core</artifactId>
-			<version>${sulfur.core.version}</version>
+			<artifactId>sulfur.core</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 </project>

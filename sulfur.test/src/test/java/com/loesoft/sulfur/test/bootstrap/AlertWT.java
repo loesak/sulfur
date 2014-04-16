@@ -1,7 +1,7 @@
 package com.loesoft.sulfur.test.bootstrap;
 
 import static org.hamcrest.CoreMatchers.is;
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.junit.Before;
 import org.junit.Rule;

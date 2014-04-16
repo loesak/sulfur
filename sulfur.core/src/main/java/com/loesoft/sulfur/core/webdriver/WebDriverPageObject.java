@@ -4,6 +4,8 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -21,14 +23,18 @@ import com.loesoft.sulfur.core.elements.annotation.ElementAnnotation;
  * 
  * @author Aaron Loes
  */
-public class WebDriverPageObject {
-
+public abstract class WebDriverPageObject {
+	
+	private static final Log LOGGER = LogFactory.getLog(WebDriverPageObject.class);
+	
 	protected static WebDriver driver;
 
 	/**
 	 * loads the page object's annotated web elements
 	 */
-	void load() {
+	protected void load() {
+		LOGGER.debug("Attempting to load page object [" + this.getClass().getName() + "]");
+		
 		// load FindBy elements
 		PageFactory.initElements(driver, this);
 
@@ -37,6 +43,7 @@ public class WebDriverPageObject {
 			for (Field field : this.getClass().getDeclaredFields()) {
 				for (Annotation annotation : field.getAnnotations()) {
 					if (annotation.annotationType().isAnnotationPresent(ElementAnnotation.class)) {
+						LOGGER.debug("Attempting to initialize page object element [" + field.getName() + "] for page object [" + this.getClass().getName() + "]");
 						
 						try {
 							@SuppressWarnings("unchecked")
@@ -52,31 +59,42 @@ public class WebDriverPageObject {
 			}
 			
 			// wait for all elements to load
-			this.waitToLoad();
+			this.waitForElementsToLoad();
 		} catch (Exception e) {
 			throw new IllegalStateException("Failed to initialize object '" + this.getClass().getName() + "'.", e);
 		}
 	}
 
 	/**
-	 * verifies the page object at the page expected
+	 * waits for individual custom elements to be loaded as defined by them
 	 * 
 	 * @return true if the page is the one we expect
 	 */
-	private void waitToLoad() {
-		/*
-		 * FIXME: should find a way to parallelize this method
-		 */
+	private void waitForElementsToLoad() {
+		for (Field field : this.getClass().getDeclaredFields()) {
+			for (Annotation annotation : field.getAnnotations()) {
+				if (annotation.annotationType().isAnnotationPresent(ElementAnnotation.class)) {
+					this.waitForElementAnnotatedFieldToBeLoaded(field, annotation);
+					break;
+				}
+			}
+		}
+	}
+	
+	/**
+	 * waits for each element to be visible
+	 */
+	private void waitForVisibilityOfElements() throws Exception {
 		for (Field field : this.getClass().getDeclaredFields()) {
 			if (field.isAnnotationPresent(FindBy.class)) {
-				this.waitForFindByAnnotatedFieldToBeLoaded(field, field.getAnnotation(FindBy.class));
+				this.waitForFindByAnnotatedFieldVisibility(field, field.getAnnotation(FindBy.class));
 			} else {
 				/*
 				 * FIXME: this should really fail if there are more than one element annotations
 				 */
 				for (Annotation annotation : field.getAnnotations()) {
 					if (annotation.annotationType().isAnnotationPresent(ElementAnnotation.class)) {
-						this.waitForElementAnnotatedFieldToBeLoaded(field, annotation);
+						this.waitForElementAnnotatedFieldToBeVisibility(field, annotation);
 						continue;
 					}
 				}
@@ -84,7 +102,13 @@ public class WebDriverPageObject {
 		}
 	}
 	
-	private void waitForFindByAnnotatedFieldToBeLoaded(Field field, FindBy findBy) {
+	/**
+	 * waits for field annotated with @FindBy to be visible
+	 * 
+	 * @param field
+	 * @param findBy
+	 */
+	private void waitForFindByAnnotatedFieldVisibility(Field field, FindBy findBy) {
 		if (findBy != null) {
 			By by = null;
 
@@ -105,11 +129,46 @@ public class WebDriverPageObject {
 			} else if (!StringUtils.isEmpty(findBy.xpath())) {
 				by = By.xpath(findBy.xpath());
 			} else {
-				throw new RuntimeException("Invalid arguments given for FindBy for field '" + field.getName() + "' in class '" + this.getClass().getName() + "'");
+				throw new IllegalArgumentException("Invalid arguments given for FindBy for field '" + field.getName() + "' in class '" + this.getClass().getName() + "'");
 			}
 
 			(new WebDriverWait(driver, WebDriverExecutionProperties.getPageLoadTimeout())).until(ExpectedConditions.visibilityOfElementLocated(by));
 		}
+	}
+	
+	/**
+	 * waits for field annotated with custom @ElementAnnotation to be visible
+	 * 
+	 * @param field
+	 * @param annotation
+	 */
+	private void waitForElementAnnotatedFieldToBeVisibility(Field field, Annotation annotation) throws Exception {
+		By by = null;
+		
+		Class<? extends By> byClass = (Class<? extends By>) annotation.annotationType().getMethod("by").invoke(annotation);
+		String using = (String) annotation.annotationType().getMethod("using").invoke(annotation);
+		
+		if (By.ById.class.equals(byClass)) {
+			by = By.id(using);
+		} else if (By.ByClassName.class.equals(byClass)) {
+			by = By.className(using);
+		} else if (By.ByCssSelector.class.equals(byClass)) {
+			by = By.cssSelector(using);
+		} else if (By.ByLinkText.class.equals(byClass)) {
+			by = By.linkText(using);
+		} else if (By.ByName.class.equals(byClass)) {
+			by = By.name(using);
+		} else if (By.ByPartialLinkText.class.equals(byClass)) {
+			by = By.partialLinkText(using);
+		} else if (By.ByTagName.class.equals(byClass)) {
+			by = By.tagName(using);
+		} else if (By.ByXPath.class.equals(byClass)) {
+			by = By.xpath(using);
+		} else {
+			throw new IllegalArgumentException("The [by] parameter must be a valid By class");
+		}
+		
+		(new WebDriverWait(driver, WebDriverExecutionProperties.getPageLoadTimeout())).until(ExpectedConditions.visibilityOfElementLocated(by));
 	}
 	
 	private void waitForElementAnnotatedFieldToBeLoaded(final Field field, Annotation annotation) {
@@ -156,7 +215,9 @@ public class WebDriverPageObject {
 
 		try {
 			page = clazz.newInstance();
-
+			
+			page.waitForVisibilityOfElements();
+			
 			page.load();
 			
 		} catch (Exception e) {

@@ -7,7 +7,6 @@ import java.lang.annotation.Target;
 
 import org.openqa.selenium.By;
 
-import com.loesoft.sulfur.core.elements.tables.Table;
 import com.loesoft.sulfur.core.elements.tables.TableBody;
 import com.loesoft.sulfur.core.elements.tables.TableFooter;
 import com.loesoft.sulfur.core.elements.tables.TableHeader;
@@ -20,7 +19,7 @@ import com.loesoft.sulfur.core.elements.tables.TableHeader;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-@ElementAnnotation(Table.class)
+@ElementAnnotation
 public @interface TableElement {
 	public Class<? extends By> by();
 

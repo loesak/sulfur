@@ -7,11 +7,9 @@ import java.lang.annotation.Target;
 
 import org.openqa.selenium.By;
 
-import com.loesoft.sulfur.core.elements.forms.Button;
-
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-@ElementAnnotation(Button.class)
+@ElementAnnotation
 public @interface ButtonElement {
 	public Class<? extends By> by();
 	public String using();

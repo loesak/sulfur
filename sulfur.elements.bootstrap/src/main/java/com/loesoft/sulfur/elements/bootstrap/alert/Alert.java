@@ -5,7 +5,6 @@ import java.lang.reflect.Constructor;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import com.loesoft.sulfur.core.elements.Element;
 import com.loesoft.sulfur.core.elements.annotation.AnnotatableElement;

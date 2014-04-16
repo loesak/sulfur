@@ -3,13 +3,10 @@ package com.loesoft.sulfur.core.webdriver;
 import java.net.URL;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.android.AndroidDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.iphone.IPhoneDriver;
-//import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -44,11 +41,11 @@ public class WebDriverFactory {
 			} else if (driverClassName.equals(ChromeDriver.class.getName())) {
 				// ChromeDriver uses something else but this still works for now
 				driver = new ChromeDriver(WebDriverFactory.getDriverDesiredCapabilities(driverClassName));
-			} else if (driverClassName.equals(IPhoneDriver.class.getName())) {
-				// IPhoneDriver ignores capabilities sent to it
-				driver = new IPhoneDriver(new URL(WebDriverBrowserProperties.getWebDriverRemoteUrl()));
-			} else if (driverClassName.equals(AndroidDriver.class.getName())) {
-				driver = new AndroidDriver(new URL(WebDriverBrowserProperties.getWebDriverRemoteUrl()), WebDriverFactory.getDriverDesiredCapabilities(driverClassName));
+//			} else if (driverClassName.equals(IPhoneDriver.class.getName())) {
+//				// IPhoneDriver ignores capabilities sent to it
+//				driver = new IPhoneDriver(new URL(WebDriverBrowserProperties.getWebDriverRemoteUrl()));
+//			} else if (driverClassName.equals(AndroidDriver.class.getName())) {
+//				driver = new AndroidDriver(new URL(WebDriverBrowserProperties.getWebDriverRemoteUrl()), WebDriverFactory.getDriverDesiredCapabilities(driverClassName));
 			} else if (driverClassName.equals(RemoteWebDriver.class.getName())) {
 				driver = new RemoteWebDriver(new URL(WebDriverBrowserProperties.getWebDriverRemoteUrl()), WebDriverFactory.getDriverDesiredCapabilities(driverClassName));
 //			} else if (driverClassName.equals(PhantomJSDriver.class.getName())) {
@@ -73,10 +70,10 @@ public class WebDriverFactory {
 			desiredCapabilities = DesiredCapabilities.firefox();
 		} else if (driverClassName.equals(ChromeDriver.class.getName())) {
 			desiredCapabilities = DesiredCapabilities.chrome();
-		} else if (driverClassName.equals(IPhoneDriver.class.getName())) {
-			desiredCapabilities = DesiredCapabilities.iphone();
-		} else if (driverClassName.equals(AndroidDriver.class.getName())) {
-			desiredCapabilities = DesiredCapabilities.android();
+//		} else if (driverClassName.equals(IPhoneDriver.class.getName())) {
+//			desiredCapabilities = DesiredCapabilities.iphone();
+//		} else if (driverClassName.equals(AndroidDriver.class.getName())) {
+//			desiredCapabilities = DesiredCapabilities.android();
 		} else if (driverClassName.equals(HtmlUnitDriver.class.getName())) {
 			desiredCapabilities = DesiredCapabilities.htmlUnit();
 //		} else if (driverClassName.equals(PhantomJSDriver.class.getName())) {

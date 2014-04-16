@@ -8,11 +8,10 @@ import java.lang.annotation.Target;
 import org.openqa.selenium.By;
 
 import com.loesoft.sulfur.core.elements.annotation.ElementAnnotation;
-import com.loesoft.sulfur.core.elements.links.Anchor;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-@ElementAnnotation(Anchor.class)
+@ElementAnnotation
 public @interface ButtonElement {
 	public Class<? extends By> by();
 	public String using();
