@@ -7,15 +7,22 @@ addons:
     access_key: ae5839e8-c30b-4856-ba95-c49b469c5425
 before_install:
   - echo "before_install"
+  - true
 install:
   - echo "install"
+  - true
 before_script:
   - echo "before_script"
+  - true
 script:
   - echo "script"
+  - true
 after_success:
   - echo "after_success"
+  - true
 after_failure:
   - echo "after_failure"
+  - true
 after_script:
   - echo "after_script"
+  - true
