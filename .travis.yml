@@ -5,17 +5,17 @@ addons:
   sauce_connect:
     username: loesak_github
     access_key: ae5839e8-c30b-4856-ba95-c49b469c5425
-before_install
+before_install:
   - echo "before_install"
-install
+install:
   - echo "install"
-before_script
+before_script:
   - echo "before_script"
-script
+script:
   - echo "script"
-after_success
+after_success:
   - echo "after_success"
-after_failure
+after_failure:
   - echo "after_failure"
-after_script
+after_script:
   - echo "after_script"
