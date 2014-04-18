@@ -40,10 +40,12 @@ public class WebDriverBaseTest {
 	 */
 	@AfterClass
 	public static void destroyDriver() {
-		// stop the driver
-		WebDriverBaseTest.driver.quit();
-
-		// cleanup
-		WebDriverBaseTest.driver = null;
+		if (WebDriverBaseTest.driver != null) {
+			// stop the driver
+			WebDriverBaseTest.driver.quit();
+	
+			// cleanup
+			WebDriverBaseTest.driver = null;
+		}
 	}
 }
