@@ -7,5 +7,5 @@ env:
     - secure: "dsQzch8RHRGRPku0uXS6HGTclnuM7y6qbXCLTW9OR3pgpUP9tEHzK6/FZZgkoM75z7vf3Ai5IEw8A4KWiTsYNYPTUI6nUpO7dH4+qno45Mwlg0M8JnBDLPCizjhxsP9DwOKhy755Bv0ACrwkXCdzsflaLDSSnGmCp7qPHqIPvWU="
 before_script:
   - curl https://gist.github.com/santiycr/5139565/raw/sauce_connect_setup.sh | bash
-install:
+script:
   - mvn install -B -V -Dwebdriver.browser.name=remote -Dwebdriver.remote.url=http://loesak_github:ae5839e8-c30b-4856-ba95-c49b469c5425@localhost:4445/wd/hub -Dwebdriver.capability.browserName=firefox -Dwebdriver.capability.platform=VISTA -Dwebdriver.capability.build=$TRAVIS_BUILD_NUMBER -Dwebdriver.capability.tags=$TRAVIS_JDK_VERSION -Dwebdriver.capability.tunnel-identifier=$TRAVIS_JOB_NUMBER
