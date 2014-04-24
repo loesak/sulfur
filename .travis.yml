@@ -8,4 +8,4 @@ env:
 before_script:
   - curl https://gist.github.com/santiycr/5139565/raw/sauce_connect_setup.sh | bash
 script:
-  - mvn install -B -V -Dwebdriver.browser.name=remote -Dwebdriver.remote.url=http://loesak_github:ae5839e8-c30b-4856-ba95-c49b469c5425@localhost:4445/wd/hub -Dwebdriver.capability.browserName=firefox -Dwebdriver.capability.platform=VISTA -Dwebdriver.capability.build=$TRAVIS_BUILD_NUMBER -Dwebdriver.capability.tags=$TRAVIS_JDK_VERSION -Dwebdriver.capability.tunnel-identifier=$TRAVIS_JOB_NUMBER
+  - mvn install -Dwebdriver.browser.name=remote -Dwebdriver.remote.url=http://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@localhost:4445/wd/hub -Dwebdriver.capability.browserName=firefox -Dwebdriver.capability.platform=VISTA -Dwebdriver.capability.build=$TRAVIS_BUILD_NUMBER -Dwebdriver.capability.tags=$TRAVIS_JDK_VERSION -Dwebdriver.capability.tunnel-identifier=$TRAVIS_JOB_NUMBER
