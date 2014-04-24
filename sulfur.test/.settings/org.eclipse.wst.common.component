@@ -4,9 +4,6 @@
         <dependent-module archiveName="sulfur.core-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/sulfur.core/sulfur.core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="sulfur.elements.bootstrap-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/sulfur.elements.bootstrap/sulfur.elements.bootstrap">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="sulfur.elements.jqueryui-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/sulfur.elements.jqueryui/sulfur.elements.jqueryui">
             <dependency-type>uses</dependency-type>
         </dependent-module>

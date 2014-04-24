@@ -12,8 +12,12 @@
 	
 	<modules>
 		<module>sulfur.core</module>
-		<module>sulfur.elements.bootstrap</module>
+		<module>sulfur.elements.bootstrap2</module>
+		<module>sulfur.elements.bootstrap3</module>
+		<module>sulfur.elements.foundation</module>
 		<module>sulfur.elements.jqueryui</module>
+		<module>sulfur.elements.kendoui</module>
+		<module>sulfur.elements.sencha</module>
 		<module>sulfur.test</module>
 	</modules>
 

@@ -6,7 +6,7 @@ import com.loesoft.sulfur.core.elements.annotation.AnchorElement;
 import com.loesoft.sulfur.core.elements.links.Anchor;
 import com.loesoft.sulfur.core.properties.ExecutionProperties;
 import com.loesoft.sulfur.core.webdriver.WebDriverPageObject;
-import com.loesoft.sulfur.test.pages.bootstrap.BootstrapMainPage;
+import com.loesoft.sulfur.test.pages.bootstrap2.BootstrapMainPage;
 import com.loesoft.sulfur.test.pages.core.CoreMainPage;
 import com.loesoft.sulfur.test.pages.jqueryui.JqueryUiMainPage;
 

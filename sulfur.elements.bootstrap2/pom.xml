@@ -10,7 +10,7 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	
-	<artifactId>sulfur.elements.jqueryui</artifactId>
+	<artifactId>sulfur.elements.bootstrap2</artifactId>
 	
 	<dependencies>
 		<dependency>

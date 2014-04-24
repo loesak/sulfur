@@ -13,8 +13,6 @@
 	<artifactId>sulfur.core</artifactId>
 	<packaging>jar</packaging>
 	
-	<name>Sulfur Core</name>
-
 	<properties>
 		<junit.version>4.11</junit.version>
 		<selenium.version>2.41.0</selenium.version>
